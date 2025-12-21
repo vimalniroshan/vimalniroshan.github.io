@@ -1,2 +1,3 @@
-# vimalniroshan.github.io
-Vimal's Profile
+# Vimal Niroshan
+
+Vimal Niroshan's profile
