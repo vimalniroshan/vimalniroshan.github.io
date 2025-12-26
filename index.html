@@ -1,10 +1,354 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Vimal Niroshan</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vimal Niroshan Sengoden</title>
+    <meta name="description" content="">
+
+    <meta property="og:title" content="Vimal Niroshan Sengoden">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="www.vimalniroshan.com">
+    <meta property="og:image" content="www.vimalniroshan.com">
+    <meta property="og:image:alt" content="Vimal Niroshan Sengoden">
+    <meta property="og:description" content="Vimal Niroshan Sengoden's Website">
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="icon.png">
+    <!--link rel="manifest" href="site.webmanifest"-->
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fefefe;
+            font-family: Verdana, Tahoma, sans-serif;
+        }
+
+        .table-timeline {
+            border: none;
+            border-collapse: collapse;
+        }
+
+        .td-caption {
+            background-color: white;
+            width: 25%;
+            text-align: right;
+            vertical-align: top;
+            padding: 10px 40px;
+            color: #6b7280;
+        }
+
+        .td-content {
+            width: 75%;
+            border-left: 2px solid #d1d5db;
+            padding: 10px 40px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .td-content::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 2px solid #d1d5db;
+            border-radius: 50%;
+            z-index: 1;
+            margin-left: -53px;
+            margin-top: -3px;
+        }
+
+        .large-bold {
+            font-size: larger;
+            font-weight: bold;
+        }
+
+        .project {
+            font-size: smaller;
+            font-weight: bold;
+        }
+
+        .tech {
+            font-family: "Courier New";
+        }
+
+        .institute {
+            font-size: smaller;
+            font-style: italic;
+        }
+
+        .section-title {
+            font-family: sans-serif, Helvetica, sans-serif;
+            font-size: xx-large;
+            text-align: left;
+            padding: 50px;
+        }
+
+        ul {
+            padding-inline-start: 0;
+            list-style-position: inside;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .overview {
+            display: flex; /* Makes children line up horizontally */
+            column-gap: 10px; /* Adds space between the divs */
+            /* Optional: Aligns items vertically in the cross axis (center) */
+            align-items: center;
+            font-family: Helvetica, sans-serif;
+            font-size: x-large;
+            padding: 20px;
+        }
+
+        .overview-left {
+            width: 20%;
+        }
+
+        .overview-center {
+            width: 30%;
+            text-align: left;
+        }
+
+        .overview-right {
+            width: 50%;
+            text-align: left;
+        }
+
+
+        /* Media queries - Responsive timeline on screens less than 600px wide */
+        @media screen and (max-width: 600px) {
+
+            .td-caption, .td-content {
+                display: table-row;
+            }
+
+            .td-caption {
+                border-left: 2px solid #d1d5db;
+                font-weight: bold;
+            }
+
+        }
+
+    </style>
 </head>
 <body>
-    Vimal Niroshan's personal profile
+    <div class="overview">
+        <div class="overview-left">
+        </div>
+        <div class="overview-center">
+            Hi, I'm Vimal Niroshan, a Software Architect from San Francisco Bay Area.
+        </div>
+        <div class="overview-right">
+            <img src="static/images/me-overview.jpg" style="width: auto; height:400px;">
+        </div>
+    </div>
+    <table class="table-timeline">
+        <thead>
+        <tr>
+            <th class="section-title">EXPERIENCE</th>
+        </tr>
+        </thead>
+        <tr>
+            <td class="td-caption">SEP 2020 - CURRENT</td>
+            <td class="td-content">
+                <span class="large-bold">Principal Architect @ Tavant Technologies Inc.</span>
+                </br>
+                <span class="project"><br/>Disney+ Marketing Intelligence Unified Messaging Platform (UMP)</span>
+                <span class="tech"><br/>Technologies: Java, Spring, Spring JPA, MySQL, AWS, EMR</span>
+                <ul>
+                    <li>Lead architect responsible for various services and solutions in UMP</li>
+                    <li>Designed and Developed Journey and Batch Services for Marketing message delivery</li>
+                    <li>Data pipeline for sourcing the audience data, filtering and message delivery</li>
+                </ul>
+                <span class="project"><br/>Enact MI Policy Admin, Cash & Billing Application </span>
+                <span class="tech"><br/>Technologies: Java, Spring, Spring JPA, Drools, PostgreSQL, AWS</span>
+                <ul>
+                    <li>Led discovery sessions with Enact business team and technical team to understand their business
+                        problem and came-up with technical solutions and project execution strategy
+                    </li>
+                    <li>Led the team of business analysts technical architects in the discovery exercise</li>
+                </ul>
+                <span class="project"><br/>MGIC - iQ+ Platform for Mortgage Insurance Origination, Risk Evaluation, Servicing & Claims</span>
+                <span class="tech"><br/>Technologies: Java, Spring, Spring JPA, Camunda, Drools, PostgreSQL, AWS, Softworks AI</span>
+                <ul>
+                    <li>Led discovery sessions with MGIC claims and servicing business team to understand their business
+                        and came-up with technical application architecture and transformation approach from legacy
+                        systems to new iQ+ based application.
+                    </li>
+                    <li>Led the technical team on Risk Evaluation Transformation obstacles</li>
+                    <li>Leading the technical team to define the origination, servicing and claims functionalities
+                        addressing business needs.
+                    </li>
+                    <li>Designed and Developed Data Migration solution for new architecture</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="td-caption">MAR 2013 - SEP 2020</td>
+            <td class="td-content">
+                <span class="large-bold">Senior Technical Architect @ Tavant Technologies Inc.</span>
+                </br>
+                <span class="project"><br/>National MI - Axis Platform for Mortgage Insurance Origination & Servicing</span>
+                <span class="tech"><br/>Technologies: Java, Spring, Hibernate, REST, SOAP, Servlets, Javascript, jQuery, Drools, AWS</span>
+                <ul>
+                    <li>Led initial discovery sessions with National MI business stake holders to understand their
+                        business to come-up with an technical architecture to meet their technology need.
+                    </li>
+                    <li>Led various technical analysis with business owners to come up with technical solutions to their
+                        day to day functional requirements including : automated billing and payment processing of
+                        insurance certificates.
+                    </li>
+                    <li>Led the initial technical analysis for National MI’s pricing and eligibility rules for mortgage
+                        insurance applications. Designed and developed initial Drools based solution for the same.
+                    </li>
+                    <li>Contributed to business transformation strategies during new platform development and
+                        on-boarding process.
+                    </li>
+                    <li>Designed and developed data migration and customer migration solutions to migrate data, users
+                        from legacy systems of National MI.
+                    </li>
+                    <li>Designed and developed the automated accounting solutions for the insurance business
+                        transactions for National MI.
+                    </li>
+                    <li>Designed the reinsurance technical solution and lead the development team on implementation.
+                    </li>
+                    <li>Contributed to various Axis B2B system integration solutions, design and development.</li>
+                    <li>Build proof of concept on OCR solution for remittance and cheque processing.</li>
+                    <li>Led development team on building various technical solutions and guided them with best practices
+                        and removed/addressed blockers in their development process.
+                    </li>
+                    <li>Handled critical production issues and situations to address the immediate business needs.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="td-caption">JUN 2011 - FEB 2013</td>
+            <td class="td-content">
+                <span class="large-bold">Technical Lead @ Tavant Technologies India Pvt. Ltd.</span>
+                </br>
+                <span class="project"><br/>Machinima Magic Live Streaming</span>
+                <span class="tech"><br/>Technologies: Java, REST, CometD, Servlets, Javascript, Nodejs, jQuery, ZeroMQ.</span>
+                <ul>
+                    <li>Analyzed various possible statistic streaming solutions using Node.js, CometD, ZeroMQ.</li>
+                    <li>Designed and developed a prototype for game statistics streaming for Machinima Youtube
+                        channel.
+                    </li>
+                </ul>
+                <span class="project"><br/>Electronic Arts (EA) - Open For Business (OFB)</span>
+                <span class="tech"><br/>Technologies: Java, REST, Sping, Hibernate, Apache OFB</span>
+                <ul>
+                    <li>Contributed to OFB platform technology transformation strategies.</li>
+                    <li>Contributed to performance improvement to OFB platform functionalities.</li>
+                    <li>Designed and developed various user stories for EA - OFB platform.</li>
+                    <li>Designed various product attribute structuring and organization of information to quick search
+                        and maintenance.
+                    </li>
+                    <li>Built POCs for experimental solutions and integration solutions.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="td-caption">APR 2010 - JUN 2011</td>
+            <td class="td-content">
+                <span class="large-bold">Systems Analyst @ Goldman Sachs Inc.</span>
+                </br>
+                <span class="project"><br/>Checklist Application (Task management application)</span>
+                <span class="tech"><br/>Technologies: Java, Spring, Hibernate, Servlets</span>
+                <ul>
+                    <li>Reverse engineered Checklist 2.0 application architecture and benchmarked the capabilities</li>
+                    <li>Involved and contributed to the design of new task management system architecture to support
+                        various flavors of tasks.
+                    </li>
+                    <li>Designed and developed Checklist 3.0 application services on new task management architecture.
+                    </li>
+                    <li>Developed data migration solution for Checklist 2.0 to 3.0 application.</li>
+                    <li><b>Appreciated by business<b> owners for the high quality of Checklist 3.0 application.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="td-caption">AUG 2006 - APR 2010</td>
+            <td class="td-content">
+                <span class="large-bold">Senior Application Developer @ BNY Mellon Technology Pvt. Ltd.</span>
+                </br>
+                <span class="project"><br/>Business Components Development & NetX360</span>
+                <span class="tech"><br/>Technologies: Java, JSF, Servlets, dojo, javascript, jQuery, Python</span>
+                <ul>
+                    <li>Designed and developed various security trading business component prototypes for NetX360
+                        framework.
+                    </li>
+                    <li>Contributed to the design and architecture of NetX360 framework.</li>
+                    <li>Developed and published NetX Studio (an application) on NetX360 framework with the working model
+                        of business components based on prototypes.
+                    </li>
+                    <li>Developed highly customizable business component like : Realized/Unrealized Gain/Loss
+                        functionalities, Rate Quote functionalities, Institutional broker dealers hierarchical asset
+                        views. with lazy loading and various caching mechanisms.
+                    </li>
+                    <li>Researched and published various front-end technology choices (JSF, dojo, jQuery, Flash etc.)
+                        for NetX360 framework.
+                    </li>
+                </ul>
+                <span class="project"><br/>e-Account Opening</span>
+                <span class="tech"><br/>Technologies: Java, Struts, Servlets, javascript, HTML, CSS</span>
+                <ul>
+                    <li>Developed a prototype for brokerage e-account opening through online services.</li>
+                </ul>
+                <span class="project"><br/>Custom brokerage site development</span>
+                <span class="tech"><br/>Technologies: Java, Struts, Servlets, javascript, HTML, CSS</span>
+                <ul>
+                    <li>Designed and developed brokerage web sites for various IBDs of Pershing LLC.</li>
+                </ul>
+                <span class="project"><br/>Select 2.0 Framework development.</span>
+                <span class="tech"><br/>Technologies: Java, Struts, Servlets, javascript, HTML, CSS, Python</span>
+                <ul>
+                    <li>Part of the development team for Select 2.0 framework development.</li>
+                    <li>Select 2.0 project won the ‘The Best Project of the Year 2008’ and got appreciation for my
+                        contribution.
+                    </li>
+                    <li>Built an automation script to rollout new trading sites in Select 2.0 framework which reduced
+                        the time taken to generate customized the style sheet and to generate customer configuration
+                        files.
+                    </li>
+                </ul>
+                <span class="project"><br/>Trading site development using Select 1.0 framework.</span>
+                <span class="tech"><br/>Technologies: Java, Struts, Servlets, javascript, HTML, CSS, Python</span>
+                <ul>
+                    <li>Developed various trading sites with Select 1.0.</li>
+                    <li>The experience made me to automate the no-brainer development work into 2 min script execution
+                        with prompts. The automation script has greatly reduced the turn around time for Select 1.0
+                        trading sites and QA efforts and greatly appreciated by everybody.
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <thead>
+        <tr>
+            <th class="section-title">EDUCATION</th>
+        </tr>
+        </thead>
+        <tr>
+            <td class="td-caption">2008 - 2009</td>
+            <td class="td-content">
+                <span class="large-bold">Diploma in Business Management</span>
+                <span class="institute"><br/>Institute of Chartered Financial Analysts of India University, Tripura</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="td-caption">2002 - 2006</td>
+            <td class="td-content">
+                <span class="large-bold">Bachelor of Engineering in Computer Science</span>
+                <span><br/><i>First class with Distinction</i></span>
+                <span class="institute"><br/>Anna University, Chennai</span>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
