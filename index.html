@@ -23,8 +23,79 @@
         }
 
         body {
+            margin: 0;
             background-color: #fefefe;
-            font-family: Verdana, Tahoma, sans-serif;
+        }
+
+        .alt-bg-color {
+            background-color: gold;
+        }
+
+        .navbar {
+            position: fixed;   /* Sticks the header to the viewport */
+            top: 0;            /* Aligns it to the very top */
+            width: 100%;       /* Ensures it spans the full width */
+            height: 60px;
+            background-color: #fff;
+            color: black;
+            display: flex;
+            justify-content: space-between; /* Puts logo on left, nav on right */
+            align-items: center;
+            padding: 0 20px;
+            box-sizing: border-box; /* Includes padding in the width calculation */
+            z-index: 1000;     /* Keeps header above other content */
+        }
+
+        /* 1. Hide the checkbox and hamburger by default (Desktop) */
+        .menu-toggle, .hamburger {
+            display: none;
+        }
+
+        .logo {
+            display: flex;
+            font-family: Helvetica, sans-serif;
+            font-weight: bold;
+            font-size: xx-large;
+            margin: 0;
+            padding: 0;
+        }
+
+        .logo img {
+            height: 40px;       /* Sets a fixed height slightly smaller than the navbar */
+            width: auto;        /* Maintains aspect ratio */
+            margin-right: 10px;
+        }
+
+        /* Optional: Add a hover effect to the logo */
+        .logo img:hover {
+            opacity: 0.8;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;     /* Makes the list items horizontal */
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.1s;
+        }
+
+        .nav-links a:hover {
+            color: #bbb;
+        }
+
+        /* IMPORTANT: Add margin to the top of your content
+           so it isn't covered by the fixed header */
+        .content {
+            margin-top: 60px;
         }
 
         .table-timeline {
@@ -33,7 +104,6 @@
         }
 
         .td-caption {
-            background-color: white;
             width: 25%;
             text-align: right;
             vertical-align: top;
@@ -54,12 +124,19 @@
             position: absolute;
             width: 20px;
             height: 20px;
-            background-color: white;
             border: 2px solid #d1d5db;
             border-radius: 50%;
             z-index: 1;
             margin-left: -53px;
             margin-top: -3px;
+        }
+
+        .td-content::before {
+            background-color: gold;
+        }
+
+        .alt-bg-color .td-content::before {
+            background-color: white;
         }
 
         .large-bold {
@@ -134,12 +211,89 @@
                 font-weight: bold;
             }
 
+            .hamburger {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 30px;
+                height: 21px;
+                cursor: pointer;
+                z-index: 1001; /* Above the mobile menu */
+            }
+
+            /* Create the 3 lines of the hamburger */
+            .hamburger span {
+                height: 3px;
+                width: 100%;
+                background-color: gold;
+                border-radius: 10px;
+                transition: all 0.3s ease;
+            }
+
+            /* Transform Nav Links into a full-screen mobile overlay */
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%; /* Hidden off-screen to the right */
+                width: 100%;
+                height: 100vh;
+                background-color: #fff;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: right 0.5s ease-in-out; /* Smooth slide-in effect */
+            }
+
+            .nav-links li {
+                margin: 20px 0;
+            }
+
+            /* 3. THE MAGIC: When checkbox is checked, slide the menu in */
+            .menu-toggle:checked ~ nav .nav-links {
+                right: 0;
+            }
+
+            /* Optional: Animate hamburger into an 'X' when menu is open */
+            .menu-toggle:checked ~ .hamburger span:nth-child(1) {
+                transform: translateY(9px) rotate(45deg);
+            }
+            .menu-toggle:checked ~ .hamburger span:nth-child(2) {
+                opacity: 0;
+            }
+            .menu-toggle:checked ~ .hamburger span:nth-child(3) {
+                transform: translateY(-9px) rotate(-45deg);
+            }
+
         }
 
     </style>
 </head>
 <body>
-    <div class="overview">
+<header class="navbar">
+    <div class="logo">
+        <img src="icon.png" alt="Vimal Niroshan Sengoden">
+        <span>Vimal Niroshan</span>
+    </div>
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#about" title="About"><img class="icon icons8-Manager" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAB4UlEQVRIS9WW/TEEURDE+zIgAkIgAkSACLgIEAEiIANEgAgQwREBMpAB9aua2TrPvjezV1u15VXdH7cf09M9PTM700RnNhGuVgXekrRvSX9Kuh1KYCjwrqQbSZuSXgxsR9KBpMch4EOAjw300hh+GNC1JO59S5pLesgkkAWG4bsFrsl6KulCEmXwpKo5ZIEdDGat82yg0XNpc8EARpGMAJ5I2o7kzjKmfnuSYNQ6mO9JigllgbOMcTdlWRuLcbbGDkoCzZNl/Gr1xbWtQ2vhaiQfBTgrNebiNxowEjKhMFitR+n1e0lvBj4KY4IgNwkgZ9+hDNQWtl9jSU0cArMYaj2KEjyTWhhZcwFMixAcxqXJfF4jd8iWYEOAnTVSluZhsPCLXN9V4N8A15gxwxmrh5Gp/H6WMdJe2XDA3dTUFz+GQ2LqS2Ls62imhzVmGJxb0DsDpGW4vmHZ+6cPYFw/stYjOd7pPTXGBIch9713S7f6/3IhwNwnGPKf9a3TPmBkgyUv1IYFLHw3txYCOxwCyP/L8SWw71OGBLVsHRjDaD14jqWxKPd5CQwLAkafLrBkLnNwcvRl8mddlsAwIEjEdnmIeIu1iMOaZDu8Ejg9ebL9uvQcSnaeyfbxCjjtVyYD/gH+V2gftNGoSQAAAABJRU5ErkJggg==" width="30" height="30"></a></li>
+            <li><a href="#profile" title="Profile"><img class="icon icons8-Resume" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAABZklEQVRIS+2X4TEEQRCFv8uACBABGZABIkAGMkAEyIAMZIAInAyEIAPqu5qpGls7tXPTiz/XVVu7d9Uzr+f12zezC/4pFiO4d8D+zPW8A5flnGPALykh36M1HKUJ8n31swYs6HUUMY13HkG7gQ+AZUcxIeAn4Bi46WAiBCz1h8DrkLLEwpgY94CPVGg31Q/AGfAInA/o3gW8yvgs2hJasRU/A9uAk64T3cCK6go4Aey1fS5F5vPsVG8lsCGNFpHjV6leh9phbjfVEVDHboCbvFpFvzVwfZpEWCo8bCA/zL1SRN7JssJnM5CGRVdTusTle6xVeh8LLVQ/zuH7rZm44vv0ZxewPfZEUgs93CuHuY4x9PTwJvHnVEcA89huqm8b0N04VLa076T8iwjVispe1cRV9lZBKS577HPWRteKGxY7mbIBXlFUO1d/JbFM8tiQoOWKM3muLk2gYd6mFDePyU+YppmiSd/UVn4fCCrXAgAAAABJRU5ErkJggg==" width="30" height="30"></a></li>
+            <li><a href="#blog" title="Blog"><img class="icon icons8-Blog" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAB/0lEQVRIS8WWjTEEQRCF30VABmSACBABIiAEIkAEJwQiIANkQAZkQATUtzXvanZ2dnb2R5mqq9u96e7X/frvVvqns+rBvZB0vpBPD5LuU1t9wDeSjiS9zAS3Dey1TgkYwY7CSEesPxl4X9JWJei3pLcgOxv4ayTw9lLAlcF2xGZHTJH9FNBh5CxzPxuY9totAH/kWiYqzsnF9adUE9FOQCBCTqfxJb32eEHPpulI7XxKgh3FfQwd1xWhkc/jqGUAfJTkSi6ZuDX9AMdebi4K2rAAOwByKDyicHR9qq3ADHwliSGBgdy0Ipq9YPEyMHUa3p9Cj1vvXRKspId7HGa4rA3sKMhfCoxDzxGVyBBdk6tgDP3D8J6mwg5gF5mGHYAN1DfQvTBM7VAZQD2fNIDW4kmLC6OpApRSPLWbCgcZJqQgPq1hUgOMMnQ7p0MRA+glMRt4CKzmvjpiKplCcX/6mW+qMy4unkvycQobB0pUGyCePgaAzruovUhDSX4UcA19Y2SqqbaXrk6iQpl3hkg8udahkn2PruXjPt5EPlTVnmYeFFSr+91rEvr9W05+ErCV8N4jc4heRmbaw5NzjKGa7QMARZbr+WKOTyQdDIU08Z40MdObbohzTETki4WQmzwT8Ro1cs8Opy6azZX+oefC62sOUKrrdeuh0wFeEqxo6xfXaoycVikE/gAAAABJRU5ErkJggg==" width="30" height="30"></a></li>
+            <li><a href="#contact" title="Contact"><img class="icon icons8-Speech-Bubble" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAACCElEQVRIS8WXjTX0QBSG362ADlABKrAlrAqsClCB7QAVoALbASpABeiADpwn596cySSTSTaJnXMczpeZ+/7M/Zlvpi2t2ZZw1Rd4X9KhpKOI8LukD0lfXYV0AQbsQtJCEn+/WnDAWE7ixIAfJD3mSLQB70q6kbS0QGtJL5J+EqrYPzeCZ5IgcJXanwImwL3Zd5lj30AEZwDek3RuhCvbmoBRCChsb7veWWIfpHHtVBKOlSsG5r6eDRTGYyyEIAAXPS8qWc0dvUm6G0FpTBjlJOix33moeGWsYDbFIjH5AaeimGylZPg4xUIQ94yzJTCA3APZOOWiwWD72q1GPkz4xykX4nB25cBYQMYV/k+4iE/lLByYewV8aN3mOOMo1zp3YGoW//9DMXm0DO+4sCBHeeD3UqADV1J9YPC24yRW0cHCBuJWj9UqYwKVkg2B6anXYVsbUXmtHcdDguz+tFE2Im4xIkmqsh3HwDCjnp9sQo0BDig2k7zl06hpHrOBza489eLIkfIXDLO4MhLjIREG4hC2w3CTEvN8+bbzNfJtby6aSVHsASPcKId5JBlVPPjYT1zOJyukDRgAWqgf5jePOBbfXAVkcOjX2i5OZUuy7bFH70YxgSmzg8C2eHxCIuVEYy6kgAmyYycA4Z1Mg9800WrgTcAkk4NAwPtrLot7fe/yP4leAbtu/gMz62wfi9jwdwAAAABJRU5ErkJggg==" width="30" height="30"></a></li>
+            <li><a href="#education" title="Education"><img class="icon icons8-Graduation-Cap" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAABpElEQVRIS+2W7TEEQRCG34uAEIjAZYAMiIAMEAEicBkgAxkgAxeBC8FFQD2qW7Wp2Z2Pw/7Rf652dqaftz+mb2eayGYTcfUPrs38jqRL23wtaVV70Pe1ptqBp5Kezcm+pDtJTQJqwSnwStKTgQ8k8dwkoAQeA6bZbRIwBG4BdglIwZsAmwQ4+CeBVQIA05En1qWxadzBXNKWJGpYYzTdWtJLsjn2wALwQtKZdSlXwruVdQRtZxzh9M0c8x5xqVDeE9RF6H7uPgLuY6rZxJUAjIBHO4SAHjuXdCPp0IbNJ9Cu3io2F2mm1hiRYhzyDLTCASEe+wK6kxTMugt4DWDSuZekkzWMlMZ6Lm3Nwbu5kToExuG7OYz1Y91HZZoByhQNMZzNzooxMJHQzaSaOvPs0eTS7lnhl/oSMd3tmfl2ZgxMvXGAar9SNXX2q0TECM7+c42BhyCISKNI61wU2AMuOq3ZMDmY9N2a0uOeL4qaKOMej/gh1I16HbU6at0fwXH2/hk4jrdNxmR14LG5SDf269ECieA4e6uV924sfez1+i2emwz8AWuzb04KqF7LAAAAAElFTkSuQmCC" width="30" height="30"></a></li>
+            <li><a href="#awards" title="Awards & Recognition"><img class="icon icons8-Medal" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAACNElEQVRIS6WX4TEuQRBFjwxkwIsAESACZEAEjwgQASLwRIAIEAEvAmRABNRR02rst7Mzs7pqa3/sTN++3bd7Zpco2z5wOfG95dMB8G9s4dLE7hNgFzhsQRhZcw7cAPpZsBrwFuAzx+4Bn25gAa+BP8BbJ/Iy8AzsJfAuxi5+Aj6Ao5KDkYAM+Ax4n8rWVKr1aeSm6m8SySnwUmC/ChwDivIi7StmqgYcGOuAYllLbwPILYL7n8RopiatFTicqHIDMP0hGt/68T3aOr2qLkWsUjcHH29T69WIfn/vZezGYZuYAetrNpptDnDUM+qoim0bh0WzzQHWueAqWLPVZN1lc4FNt23lY723u1CTGnv3mNq7bKIJbn0NptnmMA62DgrNFlrpZd0LnLONCaaincumu5l1DdiJJRvfAgj8kMZinlZZW+vIhop3XLp21ErAtsZO2uGw11E4U8HDGexM99z2HUEasKYv2+2HlYDjROpuk4F/RefRulCGErCpk7EbqgO/kE3Zq34xzEIT41DrXPAcVF0sHI81cc1hLjsvia9JhKNncg1Y5nHbbGkXlf8IeFpFn3eperjYnlW1tYMgetp7Wumm8uW7hbHrVPlGo9BcW81OC3BMq5a1Bjl5rY1UtjizVqY5bwmD8Vg0tR6RV1lt7H1V/esa5zcMgby6OhgEi9orKC+AsjVIv0/+CLQw1pmHQChcQFmGeGJcCmgA8fcw6bsF2Ojt53BYmmSR9riJjv66REk+AR1gfR8qxvyBAAAAAElFTkSuQmCC" width="30" height="30"></a></li>
+            <li><a href="https://www.linkedin.com/in/vimalniroshan/" title="LinkedIn"><img class="icon icons8-LinkedIn" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAB50lEQVRIS+2XjU3DMBCFXycANoAJ2k4AbAATUCYAJqBMABsAG7ABMAFlA5iAMgHoi+6qa3SpBL0gIdWSldix/Pzu5/ky0HI7l3QiadSaX3c4k3Qj6d43GtjLtqRHSTu2gIWVDSKQ+pB0KGnuwADR+TivRAx7QQ7WQ0ljgAGjc6q+QB0fcAhOAeblzk4TybKI/lZsgSaOAP4yuz8Ff99KOrIxwMd2wIozHBBPGfDUQAEGlDGRvleBKqkTGOZ0AL1hlXER605g/L1l5gWYhQ/m7wrSncC7xpicI8pZeGoB2DswuYaPiWrYvpqZSTmsEdt7iHwOyWFXCdBKH+8n1GBNtLebi8+k9QGXXSXp+OPgYpNLSa524BCAzD2bDmAdGtYiX7EcEhktUALMJjBts3XysG4kMlijBJj9iAPynCex4Kz9G1rAwXy+DBgzugazKRdB1ABYE3CY3tMzVa4uAcl87DlOCrI5zPB5VDkOwTp6GXC6aRKAG+C1fbwxdZOj/zK4uPi9FHJN9jyO4gBDtHspR1sCkq7Jij2UJyvoAYygLr9eFjNGSFCq7AZz5eI58fL2zIT8L8rbF67LWNAzcdFjbY2eXxvBUfyFwadUF5i6r1+YT4uHxS+M+wSR9ws8cdWvp7guIbTw/zdCsONqsD6sVAAAAABJRU5ErkJggg==" width="30" height="30"></a></li>
+        </ul>
+    </nav>
+</header>
+<main class="content">
+    <div class="overview alt-bg-color">
         <div class="overview-left">
         </div>
         <div class="overview-center">
@@ -329,11 +483,10 @@
                 </ul>
             </td>
         </tr>
-        <thead>
+        <tbody class="alt-bg-color">
         <tr>
-            <th class="section-title">EDUCATION</th>
+            <th class="section-title" colspan="2">EDUCATION</th>
         </tr>
-        </thead>
         <tr>
             <td class="td-caption">2008 - 2009</td>
             <td class="td-content">
@@ -349,6 +502,11 @@
                 <span class="institute"><br/>Anna University, Chennai</span>
             </td>
         </tr>
+        </tbody>
     </table>
+</main>
+<footer>
+    <!-- Copyright and contact info here -->
+</footer>
 </body>
 </html>
