@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -174,9 +174,16 @@
             display: none;
         }
 
+        .overview-container {
+            display: flex; /* Makes children line up horizontally */
+            justify-content: center; /* Centers horizontally */
+            align-items: center;     /* Centers vertically */
+            height: 500px;           /* Example height for visibility */
+        }
+
         .overview {
             display: flex; /* Makes children line up horizontally */
-            column-gap: 10px; /* Adds space between the divs */
+            column-gap: 20px; /* Adds space between the divs */
             /* Optional: Aligns items vertically in the cross axis (center) */
             align-items: center;
             font-family: Helvetica, sans-serif;
@@ -185,19 +192,47 @@
         }
 
         .overview-left {
-            width: 20%;
-        }
-
-        .overview-center {
-            width: 30%;
-            text-align: left;
+            width: 50%;
+            display: flex;
+            justify-content: right;
         }
 
         .overview-right {
             width: 50%;
-            text-align: left;
+            display: flex;
+            justify-content: left;
         }
 
+        .overview .overview-left .overview-text {
+            width: 60%;
+            text-align: right;
+        }
+
+        .overview-text .contact {
+            margin: 10px;
+            text-align: right;
+        }
+
+        .overview .overview-right img {
+            width: 75%;
+            height:auto;
+        }
+
+        .superscript-image {
+            vertical-align: super;
+            display: inline-block; /* Allows vertical-align to work as intended */
+            font-size: smaller;     /* Makes the image appear smaller, if needed */
+        }
+
+        .superscript-image img {
+            height: 0.7em; /* Adjust size relative to surrounding text font size */
+            width: auto;
+            transition: opacity 0.1s ease
+        }
+
+        .superscript-image img:active {
+            opacity: 0.3;
+        }
 
         /* Media queries - Responsive timeline on screens less than 600px wide */
         @media screen and (max-width: 600px) {
@@ -288,20 +323,30 @@
             <li><a href="#contact" title="Contact"><img class="icon icons8-Speech-Bubble" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAACCElEQVRIS8WXjTX0QBSG362ADlABKrAlrAqsClCB7QAVoALbASpABeiADpwn596cySSTSTaJnXMczpeZ+/7M/Zlvpi2t2ZZw1Rd4X9KhpKOI8LukD0lfXYV0AQbsQtJCEn+/WnDAWE7ixIAfJD3mSLQB70q6kbS0QGtJL5J+EqrYPzeCZ5IgcJXanwImwL3Zd5lj30AEZwDek3RuhCvbmoBRCChsb7veWWIfpHHtVBKOlSsG5r6eDRTGYyyEIAAXPS8qWc0dvUm6G0FpTBjlJOix33moeGWsYDbFIjH5AaeimGylZPg4xUIQ94yzJTCA3APZOOWiwWD72q1GPkz4xykX4nB25cBYQMYV/k+4iE/lLByYewV8aN3mOOMo1zp3YGoW//9DMXm0DO+4sCBHeeD3UqADV1J9YPC24yRW0cHCBuJWj9UqYwKVkg2B6anXYVsbUXmtHcdDguz+tFE2Im4xIkmqsh3HwDCjnp9sQo0BDig2k7zl06hpHrOBza489eLIkfIXDLO4MhLjIREG4hC2w3CTEvN8+bbzNfJtby6aSVHsASPcKId5JBlVPPjYT1zOJyukDRgAWqgf5jePOBbfXAVkcOjX2i5OZUuy7bFH70YxgSmzg8C2eHxCIuVEYy6kgAmyYycA4Z1Mg9800WrgTcAkk4NAwPtrLot7fe/yP4leAbtu/gMz62wfi9jwdwAAAABJRU5ErkJggg==" width="30" height="30"></a></li>
             <li><a href="#education" title="Education"><img class="icon icons8-Graduation-Cap" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAABpElEQVRIS+2W7TEEQRCG34uAEIjAZYAMiIAMEAEicBkgAxkgAxeBC8FFQD2qW7Wp2Z2Pw/7Rf652dqaftz+mb2eayGYTcfUPrs38jqRL23wtaVV70Pe1ptqBp5Kezcm+pDtJTQJqwSnwStKTgQ8k8dwkoAQeA6bZbRIwBG4BdglIwZsAmwQ4+CeBVQIA05En1qWxadzBXNKWJGpYYzTdWtJLsjn2wALwQtKZdSlXwruVdQRtZxzh9M0c8x5xqVDeE9RF6H7uPgLuY6rZxJUAjIBHO4SAHjuXdCPp0IbNJ9Cu3io2F2mm1hiRYhzyDLTCASEe+wK6kxTMugt4DWDSuZekkzWMlMZ6Lm3Nwbu5kToExuG7OYz1Y91HZZoByhQNMZzNzooxMJHQzaSaOvPs0eTS7lnhl/oSMd3tmfl2ZgxMvXGAar9SNXX2q0TECM7+c42BhyCISKNI61wU2AMuOq3ZMDmY9N2a0uOeL4qaKOMej/gh1I16HbU6at0fwXH2/hk4jrdNxmR14LG5SDf269ECieA4e6uV924sfez1+i2emwz8AWuzb04KqF7LAAAAAElFTkSuQmCC" width="30" height="30"></a></li>
             <li><a href="#awards" title="Awards & Recognition"><img class="icon icons8-Medal" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAACNElEQVRIS6WX4TEuQRBFjwxkwIsAESACZEAEjwgQASLwRIAIEAEvAmRABNRR02rst7Mzs7pqa3/sTN++3bd7Zpco2z5wOfG95dMB8G9s4dLE7hNgFzhsQRhZcw7cAPpZsBrwFuAzx+4Bn25gAa+BP8BbJ/Iy8AzsJfAuxi5+Aj6Ao5KDkYAM+Ax4n8rWVKr1aeSm6m8SySnwUmC/ChwDivIi7StmqgYcGOuAYllLbwPILYL7n8RopiatFTicqHIDMP0hGt/68T3aOr2qLkWsUjcHH29T69WIfn/vZezGYZuYAetrNpptDnDUM+qoim0bh0WzzQHWueAqWLPVZN1lc4FNt23lY723u1CTGnv3mNq7bKIJbn0NptnmMA62DgrNFlrpZd0LnLONCaaincumu5l1DdiJJRvfAgj8kMZinlZZW+vIhop3XLp21ErAtsZO2uGw11E4U8HDGexM99z2HUEasKYv2+2HlYDjROpuk4F/RefRulCGErCpk7EbqgO/kE3Zq34xzEIT41DrXPAcVF0sHI81cc1hLjsvia9JhKNncg1Y5nHbbGkXlf8IeFpFn3eperjYnlW1tYMgetp7Wumm8uW7hbHrVPlGo9BcW81OC3BMq5a1Bjl5rY1UtjizVqY5bwmD8Vg0tR6RV1lt7H1V/esa5zcMgby6OhgEi9orKC+AsjVIv0/+CLQw1pmHQChcQFmGeGJcCmgA8fcw6bsF2Ojt53BYmmSR9riJjv66REk+AR1gfR8qxvyBAAAAAElFTkSuQmCC" width="30" height="30"></a></li>
-            <li><a href="https://www.linkedin.com/in/vimalniroshan/" title="LinkedIn"><img class="icon icons8-LinkedIn" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAB50lEQVRIS+2XjU3DMBCFXycANoAJ2k4AbAATUCYAJqBMABsAG7ABMAFlA5iAMgHoi+6qa3SpBL0gIdWSldix/Pzu5/ky0HI7l3QiadSaX3c4k3Qj6d43GtjLtqRHSTu2gIWVDSKQ+pB0KGnuwADR+TivRAx7QQ7WQ0ljgAGjc6q+QB0fcAhOAeblzk4TybKI/lZsgSaOAP4yuz8Ff99KOrIxwMd2wIozHBBPGfDUQAEGlDGRvleBKqkTGOZ0AL1hlXER605g/L1l5gWYhQ/m7wrSncC7xpicI8pZeGoB2DswuYaPiWrYvpqZSTmsEdt7iHwOyWFXCdBKH+8n1GBNtLebi8+k9QGXXSXp+OPgYpNLSa524BCAzD2bDmAdGtYiX7EcEhktUALMJjBts3XysG4kMlijBJj9iAPynCex4Kz9G1rAwXy+DBgzugazKRdB1ABYE3CY3tMzVa4uAcl87DlOCrI5zPB5VDkOwTp6GXC6aRKAG+C1fbwxdZOj/zK4uPi9FHJN9jyO4gBDtHspR1sCkq7Jij2UJyvoAYygLr9eFjNGSFCq7AZz5eI58fL2zIT8L8rbF67LWNAzcdFjbY2eXxvBUfyFwadUF5i6r1+YT4uHxS+M+wSR9ws8cdWvp7guIbTw/zdCsONqsD6sVAAAAABJRU5ErkJggg==" width="30" height="30"></a></li>
+            <li><a href="https://www.linkedin.com/in/vimalniroshan/" target="_blank" title="LinkedIn"><img class="icon icons8-LinkedIn" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAB50lEQVRIS+2XjU3DMBCFXycANoAJ2k4AbAATUCYAJqBMABsAG7ABMAFlA5iAMgHoi+6qa3SpBL0gIdWSldix/Pzu5/ky0HI7l3QiadSaX3c4k3Qj6d43GtjLtqRHSTu2gIWVDSKQ+pB0KGnuwADR+TivRAx7QQ7WQ0ljgAGjc6q+QB0fcAhOAeblzk4TybKI/lZsgSaOAP4yuz8Ff99KOrIxwMd2wIozHBBPGfDUQAEGlDGRvleBKqkTGOZ0AL1hlXER605g/L1l5gWYhQ/m7wrSncC7xpicI8pZeGoB2DswuYaPiWrYvpqZSTmsEdt7iHwOyWFXCdBKH+8n1GBNtLebi8+k9QGXXSXp+OPgYpNLSa524BCAzD2bDmAdGtYiX7EcEhktUALMJjBts3XysG4kMlijBJj9iAPynCex4Kz9G1rAwXy+DBgzugazKRdB1ABYE3CY3tMzVa4uAcl87DlOCrI5zPB5VDkOwTp6GXC6aRKAG+C1fbwxdZOj/zK4uPi9FHJN9jyO4gBDtHspR1sCkq7Jij2UJyvoAYygLr9eFjNGSFCq7AZz5eI58fL2zIT8L8rbF67LWNAzcdFjbY2eXxvBUfyFwadUF5i6r1+YT4uHxS+M+wSR9ws8cdWvp7guIbTw/zdCsONqsD6sVAAAAABJRU5ErkJggg==" width="30" height="30"></a></li>
         </ul>
     </nav>
 </header>
 <main class="content">
-    <div class="overview alt-bg-color">
+    <div class="overview-container alt-bg-color">
+    <div class="overview">
         <div class="overview-left">
-        </div>
-        <div class="overview-center">
-            Hi, I'm Vimal Niroshan, a Software Architect from San Francisco Bay Area.
+            <div class="overview-text">
+                Hi, I'm Vimal Niroshan, a Software Architect from San Francisco Bay Area
+                <div class="contact">
+                    <a href="https://www.linkedin.com/in/vimalniroshan/" target="_blank" title="LinkedIn"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABwklEQVR4nO2ZP0vDQByGkwsOruIkuGpXP4GLWyuufgk/g4OUXHFQEId2cFFwcHJUsC1mFPGutNpCLdY6VIp/2kT7N/1J0latbbGJklzgHninHMf75HdZLoLA4XA4TCPJdAXJJI5kqiFMwZHIVBMxjUkyWf5TeRET7FhpPDwiJkH7b97l8qgbKUQClgXMY8NAeWRMQaZR6wKYqG4XR73IpGJDgIHi+Cv/JuCLpOG8oIHW0EEpaDAfTntLQClo8J34veYtAa2h9wmodd1bAorXJ+CLpE0JYxKxvApz4RtvCSCXInAB3Mkwxnk+u3sN2xclSJWqUG224bXWMo/i2ukDTG4m2BZY2MvA41sTRnFZfIeZnRS7AtmXOvxGLK+CxKrAuPiPcmwK6G0wz//S4S2sHucheqcOXbeffGZTYF0p9q2ZCCXgJFcZWJd5qrEpML2dHNhn8SA7sK5ca7En0P7xvJepreTYa12fgN29EBfAXMCEC2AuQLkA4gIWGbWRWxE8fbWIadmygHE/z0BxMCJiemZZwPi54HZx1I2Er/yWBTpTIEG3y4uYbNgq/zmJEAkY9/POfhNENY6N7TfP4XA4glN8AJJwntfiYf8PAAAAAElFTkSuQmCC" width="30" height="30" alt="linkedin"></a>
+                    <a href="https://github.com/vimalniroshan" target="_blank" title="GitHub"><img src="data:image/png;base64,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" width="30" height="30" alt="github"></a>
+                    <span class="superscript-image">
+                        <span id="email-address">email@vimalniroshan.com</span>
+                        <img onclick="copyToClipboard('email-address')" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA9ElEQVR4nO3WQQqDMBSE4bmERXrRbntGkUpPM10VRGI1Ou9FyvwQutP3GQ0FtFG0JgC9eLYmELbGfIdQXIMtMUrIMPvtRPNVD6G4RjfDpO+MEoKWmIcY0hTzDNjVbs83ozouX6KnxZVd3cQoz/43gHsQZPM1U5/9ZzHcmGcVo4RMgo+SO+YpvmZKSC/A8MAaIs7+G4DxxGvGg0sOUWBqCoVkYhgNycIwA5KBYRYkGsNMSCSGEZDa/2Z/AeEVIbUZUsgQRYYUMkSRIYUMUWRIIUMUGVLIEEWGFDJE0fKeFCwYcqKQe9KQ4xnyK0OuCmGDZQgWfQC4nQCGD5qCoAAAAABJRU5ErkJggg==" alt="copy">
+                    </span>
+                </div>
+            </div>
         </div>
         <div class="overview-right">
-            <img src="static/images/me-overview.jpg" style="width: auto; height:400px;">
+            <img src="static/images/me-overview.jpg">
         </div>
+    </div>
     </div>
     <table class="table-timeline">
         <thead>
@@ -508,5 +553,11 @@
 <footer>
     <!-- Copyright and contact info here -->
 </footer>
+<script language="JavaScript">
+    function copyToClipboard(targetElementId) {
+        const textToBeCopied = document.getElementById(targetElementId).innerText;
+        navigator.clipboard.writeText(textToBeCopied)
+    }
+</script>
 </body>
 </html>
