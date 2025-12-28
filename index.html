@@ -16,182 +16,12 @@
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="icon.png">
     <!--link rel="manifest" href="site.webmanifest"-->
-
+    <link rel="stylesheet" href="static/css/styles.css">
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            background-color: #fefefe;
-        }
-
-        .alt-bg-color {
-            background-color: gold;
-        }
-
-        .navbar {
-            position: fixed;   /* Sticks the header to the viewport */
-            top: 0;            /* Aligns it to the very top */
-            width: 100%;       /* Ensures it spans the full width */
-            height: 60px;
-            background-color: #fff;
-            color: black;
-            display: flex;
-            justify-content: space-between; /* Puts logo on left, nav on right */
-            align-items: center;
-            z-index: 1000;     /* Keeps header above other content */
-            margin: 0 10px;
-        }
-
-        .footbar {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            height: 60px;
-            background-color: gold;
-            color: black;
-            display: flex;
-            justify-content: center; /* Puts logo on left, nav on right */
-            align-items: center;
-            z-index: 1000;     /* Keeps header above other content */
-            margin: 0 10px;
-        }
-
-        /* 1. Hide the checkbox and hamburger by default (Desktop) */
-        .menu-toggle, .hamburger {
-            display: none;
-        }
-
-        .logo {
-            display: flex;
-            font-family: Helvetica, sans-serif;
-            font-weight: bold;
-            font-size: xx-large;
-            margin: 0;
-            padding: 0;
-        }
-
-        .logo img {
-            height: 40px;       /* Sets a fixed height slightly smaller than the navbar */
-            width: auto;        /* Maintains aspect ratio */
-            margin-right: 10px;
-        }
-
-        /* Optional: Add a hover effect to the logo */
-        .logo img:hover {
-            opacity: 0.8;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;     /* Makes the list items horizontal */
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-links li {
-            margin-left: 20px;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.1s;
-        }
-
-        .nav-links a:hover {
-            color: #bbb;
-        }
-
-        /* IMPORTANT: Add margin to the top of your content
-           so it isn't covered by the fixed header */
-        .content {
-            padding: 60px 10px;
-        }
-
-        .table-timeline {
-            border: none;
-            border-collapse: collapse;
-        }
-
-        .td-caption {
-            width: 25%;
-            text-align: right;
-            vertical-align: top;
-            padding: 10px 40px;
-            color: #6b7280;
-        }
-
-        .td-content {
-            width: 75%;
-            border-left: 2px solid #d1d5db;
-            padding: 10px 40px;
-            text-align: left;
-            vertical-align: top;
-        }
-
-        .td-content::before {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            border: 2px solid #d1d5db;
-            border-radius: 50%;
-            z-index: 1;
-            margin-left: -53px;
-            margin-top: -3px;
-        }
-
-        .td-content::before {
-            background-color: gold;
-        }
-
-        .alt-bg-color .td-content::before {
-            background-color: white;
-        }
-
-        .large-bold {
-            font-size: larger;
-            font-weight: bold;
-        }
-
-        .project {
-            font-size: smaller;
-            font-weight: bold;
-        }
-
-        .tech {
-            font-family: "Courier New";
-        }
-
-        .institute {
-            font-size: smaller;
-            font-style: italic;
-        }
-
-        .section-title {
-            font-family: sans-serif, Helvetica, sans-serif;
-            font-size: xx-large;
-            text-align: right;
-            padding: 20px;
-        }
-
-        ul {
-            padding-inline-start: 0;
-            list-style-position: inside;
-        }
-
-        .hidden {
-            display: none;
-        }
-
         .overview-container {
             display: flex; /* Makes children line up horizontally */
             justify-content: center; /* Centers horizontally */
-            align-items: center;     /* Centers vertically */
-            height: 500px;           /* Example height for visibility */
+            align-items: center; /* Centers vertically */
         }
 
         .overview {
@@ -202,6 +32,7 @@
             font-family: Helvetica, sans-serif;
             font-size: x-large;
             padding: 20px;
+            height: 500px;
         }
 
         .overview-left {
@@ -221,372 +52,303 @@
             text-align: right;
         }
 
-        .overview-text .contact {
-            margin: 10px;
-            text-align: right;
-        }
-
         .overview .overview-right img {
             width: 75%;
-            height:auto;
+            height: auto;
         }
-
-        .superscript-image {
-            vertical-align: super;
-            display: inline-block; /* Allows vertical-align to work as intended */
-            font-size: smaller;     /* Makes the image appear smaller, if needed */
-        }
-
-        .superscript-image img {
-            height: 0.7em; /* Adjust size relative to surrounding text font size */
-            width: auto;
-            transition: opacity 0.1s ease
-        }
-
-        .superscript-image img:active {
-            opacity: 0.3;
-        }
-
-        /* Media queries - Responsive timeline on screens less than 600px wide */
-        @media screen and (max-width: 600px) {
-
-            .section-title {
-                text-align: left;
-                padding: 20px 0;
-            }
-
-            .td-content::before {
-                display: none;
-            }
-
-            .td-caption, .td-content {
-                display: table-row;
-                border-left: 0;
-                margin: 20px;
-            }
-
-            .td-caption {
-                border-top: 2px solid #d1d5db;
-                font-weight: bold;
-                height: 30px;
-            }
-
-            .hamburger {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                width: 30px;
-                height: 21px;
-                cursor: pointer;
-                z-index: 1001; /* Above the mobile menu */
-            }
-
-            /* Create the 3 lines of the hamburger */
-            .hamburger span {
-                height: 3px;
-                width: 100%;
-                background-color: black;
-                border-radius: 10px;
-                transition: all 0.3s ease;
-            }
-
-            /* Transform Nav Links into a full-screen mobile overlay */
-            .nav-links {
-                position: fixed;
-                top: 60px;
-                right: -100%; /* Hidden off-screen to the right */
-                width: 60px;
-                height: 100vh;
-                background-color: #fff;
-                flex-direction: column;
-                align-items: center;
-                justify-content: start;
-                transition: right 0.5s ease-in-out; /* Smooth slide-in effect */
-            }
-
-            .nav-links li {
-                margin: 20px 0;
-            }
-
-            /* 3. THE MAGIC: When checkbox is checked, slide the menu in */
-            .menu-toggle:checked ~ nav .nav-links {
-                right: 0;
-            }
-
-            /* Optional: Animate hamburger into an 'X' when menu is open */
-            .menu-toggle:checked ~ .hamburger span:nth-child(1) {
-                transform: translateY(9px) rotate(45deg);
-            }
-            .menu-toggle:checked ~ .hamburger span:nth-child(2) {
-                opacity: 0;
-            }
-            .menu-toggle:checked ~ .hamburger span:nth-child(3) {
-                transform: translateY(-9px) rotate(-45deg);
-            }
-
-        }
-
     </style>
 </head>
 <body>
 <header class="navbar">
-    <div class="logo">
+    <div class="navbar-left">
         <img src="icon.png" alt="Vimal Niroshan Sengoden">
         <span>Vimal Niroshan</span>
     </div>
-    <div>
-    <input type="checkbox" id="menu-toggle" class="menu-toggle">
-    <label for="menu-toggle" class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-    </label>
+    <div class="navbar-right">
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger">
+            <span></span><span></span><span></span>
+        </label>
         <nav>
             <ul class="nav-links">
-                <li><a href="#about" title="About"><img class="icon icons8-Manager" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAB4UlEQVRIS9WW/TEEURDE+zIgAkIgAkSACLgIEAEiIANEgAgQwREBMpAB9aua2TrPvjezV1u15VXdH7cf09M9PTM700RnNhGuVgXekrRvSX9Kuh1KYCjwrqQbSZuSXgxsR9KBpMch4EOAjw300hh+GNC1JO59S5pLesgkkAWG4bsFrsl6KulCEmXwpKo5ZIEdDGat82yg0XNpc8EARpGMAJ5I2o7kzjKmfnuSYNQ6mO9JigllgbOMcTdlWRuLcbbGDkoCzZNl/Gr1xbWtQ2vhaiQfBTgrNebiNxowEjKhMFitR+n1e0lvBj4KY4IgNwkgZ9+hDNQWtl9jSU0cArMYaj2KEjyTWhhZcwFMixAcxqXJfF4jd8iWYEOAnTVSluZhsPCLXN9V4N8A15gxwxmrh5Gp/H6WMdJe2XDA3dTUFz+GQ2LqS2Ls62imhzVmGJxb0DsDpGW4vmHZ+6cPYFw/stYjOd7pPTXGBIch9713S7f6/3IhwNwnGPKf9a3TPmBkgyUv1IYFLHw3txYCOxwCyP/L8SWw71OGBLVsHRjDaD14jqWxKPd5CQwLAkafLrBkLnNwcvRl8mddlsAwIEjEdnmIeIu1iMOaZDu8Ejg9ebL9uvQcSnaeyfbxCjjtVyYD/gH+V2gftNGoSQAAAABJRU5ErkJggg==" width="30" height="30"></a></li>
-                <li><a href="#profile" title="Profile"><img class="icon icons8-Resume" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAABZklEQVRIS+2X4TEEQRCFv8uACBABGZABIkAGMkAEyIAMZIAInAyEIAPqu5qpGls7tXPTiz/XVVu7d9Uzr+f12zezC/4pFiO4d8D+zPW8A5flnGPALykh36M1HKUJ8n31swYs6HUUMY13HkG7gQ+AZUcxIeAn4Bi46WAiBCz1h8DrkLLEwpgY94CPVGg31Q/AGfAInA/o3gW8yvgs2hJasRU/A9uAk64T3cCK6go4Aey1fS5F5vPsVG8lsCGNFpHjV6leh9phbjfVEVDHboCbvFpFvzVwfZpEWCo8bCA/zL1SRN7JssJnM5CGRVdTusTle6xVeh8LLVQ/zuH7rZm44vv0ZxewPfZEUgs93CuHuY4x9PTwJvHnVEcA89huqm8b0N04VLa076T8iwjVispe1cRV9lZBKS577HPWRteKGxY7mbIBXlFUO1d/JbFM8tiQoOWKM3muLk2gYd6mFDePyU+YppmiSd/UVn4fCCrXAgAAAABJRU5ErkJggg==" width="30" height="30"></a></li>
-                <li><a href="#blog" title="Blog"><img class="icon icons8-Blog" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAB/0lEQVRIS8WWjTEEQRCF30VABmSACBABIiAEIkAEJwQiIANkQAZkQATUtzXvanZ2dnb2R5mqq9u96e7X/frvVvqns+rBvZB0vpBPD5LuU1t9wDeSjiS9zAS3Dey1TgkYwY7CSEesPxl4X9JWJei3pLcgOxv4ayTw9lLAlcF2xGZHTJH9FNBh5CxzPxuY9totAH/kWiYqzsnF9adUE9FOQCBCTqfxJb32eEHPpulI7XxKgh3FfQwd1xWhkc/jqGUAfJTkSi6ZuDX9AMdebi4K2rAAOwByKDyicHR9qq3ADHwliSGBgdy0Ipq9YPEyMHUa3p9Cj1vvXRKspId7HGa4rA3sKMhfCoxDzxGVyBBdk6tgDP3D8J6mwg5gF5mGHYAN1DfQvTBM7VAZQD2fNIDW4kmLC6OpApRSPLWbCgcZJqQgPq1hUgOMMnQ7p0MRA+glMRt4CKzmvjpiKplCcX/6mW+qMy4unkvycQobB0pUGyCePgaAzruovUhDSX4UcA19Y2SqqbaXrk6iQpl3hkg8udahkn2PruXjPt5EPlTVnmYeFFSr+91rEvr9W05+ErCV8N4jc4heRmbaw5NzjKGa7QMARZbr+WKOTyQdDIU08Z40MdObbohzTETki4WQmzwT8Ro1cs8Opy6azZX+oefC62sOUKrrdeuh0wFeEqxo6xfXaoycVikE/gAAAABJRU5ErkJggg==" width="30" height="30"></a></li>
-                <li><a href="#contact" title="Contact"><img class="icon icons8-Speech-Bubble" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAACCElEQVRIS8WXjTX0QBSG362ADlABKrAlrAqsClCB7QAVoALbASpABeiADpwn596cySSTSTaJnXMczpeZ+/7M/Zlvpi2t2ZZw1Rd4X9KhpKOI8LukD0lfXYV0AQbsQtJCEn+/WnDAWE7ixIAfJD3mSLQB70q6kbS0QGtJL5J+EqrYPzeCZ5IgcJXanwImwL3Zd5lj30AEZwDek3RuhCvbmoBRCChsb7veWWIfpHHtVBKOlSsG5r6eDRTGYyyEIAAXPS8qWc0dvUm6G0FpTBjlJOix33moeGWsYDbFIjH5AaeimGylZPg4xUIQ94yzJTCA3APZOOWiwWD72q1GPkz4xykX4nB25cBYQMYV/k+4iE/lLByYewV8aN3mOOMo1zp3YGoW//9DMXm0DO+4sCBHeeD3UqADV1J9YPC24yRW0cHCBuJWj9UqYwKVkg2B6anXYVsbUXmtHcdDguz+tFE2Im4xIkmqsh3HwDCjnp9sQo0BDig2k7zl06hpHrOBza489eLIkfIXDLO4MhLjIREG4hC2w3CTEvN8+bbzNfJtby6aSVHsASPcKId5JBlVPPjYT1zOJyukDRgAWqgf5jePOBbfXAVkcOjX2i5OZUuy7bFH70YxgSmzg8C2eHxCIuVEYy6kgAmyYycA4Z1Mg9800WrgTcAkk4NAwPtrLot7fe/yP4leAbtu/gMz62wfi9jwdwAAAABJRU5ErkJggg==" width="30" height="30"></a></li>
-                <li><a href="#education" title="Education"><img class="icon icons8-Graduation-Cap" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAABpElEQVRIS+2W7TEEQRCG34uAEIjAZYAMiIAMEAEicBkgAxkgAxeBC8FFQD2qW7Wp2Z2Pw/7Rf652dqaftz+mb2eayGYTcfUPrs38jqRL23wtaVV70Pe1ptqBp5Kezcm+pDtJTQJqwSnwStKTgQ8k8dwkoAQeA6bZbRIwBG4BdglIwZsAmwQ4+CeBVQIA05En1qWxadzBXNKWJGpYYzTdWtJLsjn2wALwQtKZdSlXwruVdQRtZxzh9M0c8x5xqVDeE9RF6H7uPgLuY6rZxJUAjIBHO4SAHjuXdCPp0IbNJ9Cu3io2F2mm1hiRYhzyDLTCASEe+wK6kxTMugt4DWDSuZekkzWMlMZ6Lm3Nwbu5kToExuG7OYz1Y91HZZoByhQNMZzNzooxMJHQzaSaOvPs0eTS7lnhl/oSMd3tmfl2ZgxMvXGAar9SNXX2q0TECM7+c42BhyCISKNI61wU2AMuOq3ZMDmY9N2a0uOeL4qaKOMej/gh1I16HbU6at0fwXH2/hk4jrdNxmR14LG5SDf269ECieA4e6uV924sfez1+i2emwz8AWuzb04KqF7LAAAAAElFTkSuQmCC" width="30" height="30"></a></li>
-                <li><a href="#awards" title="Awards & Recognition"><img class="icon icons8-Medal" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAACNElEQVRIS6WX4TEuQRBFjwxkwIsAESACZEAEjwgQASLwRIAIEAEvAmRABNRR02rst7Mzs7pqa3/sTN++3bd7Zpco2z5wOfG95dMB8G9s4dLE7hNgFzhsQRhZcw7cAPpZsBrwFuAzx+4Bn25gAa+BP8BbJ/Iy8AzsJfAuxi5+Aj6Ao5KDkYAM+Ax4n8rWVKr1aeSm6m8SySnwUmC/ChwDivIi7StmqgYcGOuAYllLbwPILYL7n8RopiatFTicqHIDMP0hGt/68T3aOr2qLkWsUjcHH29T69WIfn/vZezGYZuYAetrNpptDnDUM+qoim0bh0WzzQHWueAqWLPVZN1lc4FNt23lY723u1CTGnv3mNq7bKIJbn0NptnmMA62DgrNFlrpZd0LnLONCaaincumu5l1DdiJJRvfAgj8kMZinlZZW+vIhop3XLp21ErAtsZO2uGw11E4U8HDGexM99z2HUEasKYv2+2HlYDjROpuk4F/RefRulCGErCpk7EbqgO/kE3Zq34xzEIT41DrXPAcVF0sHI81cc1hLjsvia9JhKNncg1Y5nHbbGkXlf8IeFpFn3eperjYnlW1tYMgetp7Wumm8uW7hbHrVPlGo9BcW81OC3BMq5a1Bjl5rY1UtjizVqY5bwmD8Vg0tR6RV1lt7H1V/esa5zcMgby6OhgEi9orKC+AsjVIv0/+CLQw1pmHQChcQFmGeGJcCmgA8fcw6bsF2Ojt53BYmmSR9riJjv66REk+AR1gfR8qxvyBAAAAAElFTkSuQmCC" width="30" height="30"></a></li>
-                <li><a href="https://www.linkedin.com/in/vimalniroshan/" target="_blank" title="LinkedIn"><img class="icon icons8-LinkedIn" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAB50lEQVRIS+2XjU3DMBCFXycANoAJ2k4AbAATUCYAJqBMABsAG7ABMAFlA5iAMgHoi+6qa3SpBL0gIdWSldix/Pzu5/ky0HI7l3QiadSaX3c4k3Qj6d43GtjLtqRHSTu2gIWVDSKQ+pB0KGnuwADR+TivRAx7QQ7WQ0ljgAGjc6q+QB0fcAhOAeblzk4TybKI/lZsgSaOAP4yuz8Ff99KOrIxwMd2wIozHBBPGfDUQAEGlDGRvleBKqkTGOZ0AL1hlXER605g/L1l5gWYhQ/m7wrSncC7xpicI8pZeGoB2DswuYaPiWrYvpqZSTmsEdt7iHwOyWFXCdBKH+8n1GBNtLebi8+k9QGXXSXp+OPgYpNLSa524BCAzD2bDmAdGtYiX7EcEhktUALMJjBts3XysG4kMlijBJj9iAPynCex4Kz9G1rAwXy+DBgzugazKRdB1ABYE3CY3tMzVa4uAcl87DlOCrI5zPB5VDkOwTp6GXC6aRKAG+C1fbwxdZOj/zK4uPi9FHJN9jyO4gBDtHspR1sCkq7Jij2UJyvoAYygLr9eFjNGSFCq7AZz5eI58fL2zIT8L8rbF67LWNAzcdFjbY2eXxvBUfyFwadUF5i6r1+YT4uHxS+M+wSR9ws8cdWvp7guIbTw/zdCsONqsD6sVAAAAABJRU5ErkJggg==" width="30" height="30"></a></li>
+                <li><a href="#about" title="About"><img class="icon icons8-Manager"
+                                                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAB4UlEQVRIS9WW/TEEURDE+zIgAkIgAkSACLgIEAEiIANEgAgQwREBMpAB9aua2TrPvjezV1u15VXdH7cf09M9PTM700RnNhGuVgXekrRvSX9Kuh1KYCjwrqQbSZuSXgxsR9KBpMch4EOAjw300hh+GNC1JO59S5pLesgkkAWG4bsFrsl6KulCEmXwpKo5ZIEdDGat82yg0XNpc8EARpGMAJ5I2o7kzjKmfnuSYNQ6mO9JigllgbOMcTdlWRuLcbbGDkoCzZNl/Gr1xbWtQ2vhaiQfBTgrNebiNxowEjKhMFitR+n1e0lvBj4KY4IgNwkgZ9+hDNQWtl9jSU0cArMYaj2KEjyTWhhZcwFMixAcxqXJfF4jd8iWYEOAnTVSluZhsPCLXN9V4N8A15gxwxmrh5Gp/H6WMdJe2XDA3dTUFz+GQ2LqS2Ls62imhzVmGJxb0DsDpGW4vmHZ+6cPYFw/stYjOd7pPTXGBIch9713S7f6/3IhwNwnGPKf9a3TPmBkgyUv1IYFLHw3txYCOxwCyP/L8SWw71OGBLVsHRjDaD14jqWxKPd5CQwLAkafLrBkLnNwcvRl8mddlsAwIEjEdnmIeIu1iMOaZDu8Ejg9ebL9uvQcSnaeyfbxCjjtVyYD/gH+V2gftNGoSQAAAABJRU5ErkJggg=="
+                                                        width="30" height="30"></a></li>
+                <li><a href="#profile" title="Profile"><img class="icon icons8-Resume"
+                                                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAABZklEQVRIS+2X4TEEQRCFv8uACBABGZABIkAGMkAEyIAMZIAInAyEIAPqu5qpGls7tXPTiz/XVVu7d9Uzr+f12zezC/4pFiO4d8D+zPW8A5flnGPALykh36M1HKUJ8n31swYs6HUUMY13HkG7gQ+AZUcxIeAn4Bi46WAiBCz1h8DrkLLEwpgY94CPVGg31Q/AGfAInA/o3gW8yvgs2hJasRU/A9uAk64T3cCK6go4Aey1fS5F5vPsVG8lsCGNFpHjV6leh9phbjfVEVDHboCbvFpFvzVwfZpEWCo8bCA/zL1SRN7JssJnM5CGRVdTusTle6xVeh8LLVQ/zuH7rZm44vv0ZxewPfZEUgs93CuHuY4x9PTwJvHnVEcA89huqm8b0N04VLa076T8iwjVispe1cRV9lZBKS577HPWRteKGxY7mbIBXlFUO1d/JbFM8tiQoOWKM3muLk2gYd6mFDePyU+YppmiSd/UVn4fCCrXAgAAAABJRU5ErkJggg=="
+                                                            width="30" height="30"></a></li>
+                <li><a href="#blog" title="Blog"><img class="icon icons8-Blog"
+                                                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAB/0lEQVRIS8WWjTEEQRCF30VABmSACBABIiAEIkAEJwQiIANkQAZkQATUtzXvanZ2dnb2R5mqq9u96e7X/frvVvqns+rBvZB0vpBPD5LuU1t9wDeSjiS9zAS3Dey1TgkYwY7CSEesPxl4X9JWJei3pLcgOxv4ayTw9lLAlcF2xGZHTJH9FNBh5CxzPxuY9totAH/kWiYqzsnF9adUE9FOQCBCTqfxJb32eEHPpulI7XxKgh3FfQwd1xWhkc/jqGUAfJTkSi6ZuDX9AMdebi4K2rAAOwByKDyicHR9qq3ADHwliSGBgdy0Ipq9YPEyMHUa3p9Cj1vvXRKspId7HGa4rA3sKMhfCoxDzxGVyBBdk6tgDP3D8J6mwg5gF5mGHYAN1DfQvTBM7VAZQD2fNIDW4kmLC6OpApRSPLWbCgcZJqQgPq1hUgOMMnQ7p0MRA+glMRt4CKzmvjpiKplCcX/6mW+qMy4unkvycQobB0pUGyCePgaAzruovUhDSX4UcA19Y2SqqbaXrk6iQpl3hkg8udahkn2PruXjPt5EPlTVnmYeFFSr+91rEvr9W05+ErCV8N4jc4heRmbaw5NzjKGa7QMARZbr+WKOTyQdDIU08Z40MdObbohzTETki4WQmzwT8Ro1cs8Opy6azZX+oefC62sOUKrrdeuh0wFeEqxo6xfXaoycVikE/gAAAABJRU5ErkJggg=="
+                                                      width="30" height="30"></a></li>
+                <li><a href="#contact" title="Contact"><img class="icon icons8-Speech-Bubble"
+                                                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAACCElEQVRIS8WXjTX0QBSG362ADlABKrAlrAqsClCB7QAVoALbASpABeiADpwn596cySSTSTaJnXMczpeZ+/7M/Zlvpi2t2ZZw1Rd4X9KhpKOI8LukD0lfXYV0AQbsQtJCEn+/WnDAWE7ixIAfJD3mSLQB70q6kbS0QGtJL5J+EqrYPzeCZ5IgcJXanwImwL3Zd5lj30AEZwDek3RuhCvbmoBRCChsb7veWWIfpHHtVBKOlSsG5r6eDRTGYyyEIAAXPS8qWc0dvUm6G0FpTBjlJOix33moeGWsYDbFIjH5AaeimGylZPg4xUIQ94yzJTCA3APZOOWiwWD72q1GPkz4xykX4nB25cBYQMYV/k+4iE/lLByYewV8aN3mOOMo1zp3YGoW//9DMXm0DO+4sCBHeeD3UqADV1J9YPC24yRW0cHCBuJWj9UqYwKVkg2B6anXYVsbUXmtHcdDguz+tFE2Im4xIkmqsh3HwDCjnp9sQo0BDig2k7zl06hpHrOBza489eLIkfIXDLO4MhLjIREG4hC2w3CTEvN8+bbzNfJtby6aSVHsASPcKId5JBlVPPjYT1zOJyukDRgAWqgf5jePOBbfXAVkcOjX2i5OZUuy7bFH70YxgSmzg8C2eHxCIuVEYy6kgAmyYycA4Z1Mg9800WrgTcAkk4NAwPtrLot7fe/yP4leAbtu/gMz62wfi9jwdwAAAABJRU5ErkJggg=="
+                                                            width="30" height="30"></a></li>
+                <li><a href="#education" title="Education"><img class="icon icons8-Graduation-Cap"
+                                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAABpElEQVRIS+2W7TEEQRCG34uAEIjAZYAMiIAMEAEicBkgAxkgAxeBC8FFQD2qW7Wp2Z2Pw/7Rf652dqaftz+mb2eayGYTcfUPrs38jqRL23wtaVV70Pe1ptqBp5Kezcm+pDtJTQJqwSnwStKTgQ8k8dwkoAQeA6bZbRIwBG4BdglIwZsAmwQ4+CeBVQIA05En1qWxadzBXNKWJGpYYzTdWtJLsjn2wALwQtKZdSlXwruVdQRtZxzh9M0c8x5xqVDeE9RF6H7uPgLuY6rZxJUAjIBHO4SAHjuXdCPp0IbNJ9Cu3io2F2mm1hiRYhzyDLTCASEe+wK6kxTMugt4DWDSuZekkzWMlMZ6Lm3Nwbu5kToExuG7OYz1Y91HZZoByhQNMZzNzooxMJHQzaSaOvPs0eTS7lnhl/oSMd3tmfl2ZgxMvXGAar9SNXX2q0TECM7+c42BhyCISKNI61wU2AMuOq3ZMDmY9N2a0uOeL4qaKOMej/gh1I16HbU6at0fwXH2/hk4jrdNxmR14LG5SDf269ECieA4e6uV924sfez1+i2emwz8AWuzb04KqF7LAAAAAElFTkSuQmCC"
+                                                                width="30" height="30"></a></li>
+                <li><a href="#awards" title="Awards & Recognition"><img class="icon icons8-Medal"
+                                                                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAACNElEQVRIS6WX4TEuQRBFjwxkwIsAESACZEAEjwgQASLwRIAIEAEvAmRABNRR02rst7Mzs7pqa3/sTN++3bd7Zpco2z5wOfG95dMB8G9s4dLE7hNgFzhsQRhZcw7cAPpZsBrwFuAzx+4Bn25gAa+BP8BbJ/Iy8AzsJfAuxi5+Aj6Ao5KDkYAM+Ax4n8rWVKr1aeSm6m8SySnwUmC/ChwDivIi7StmqgYcGOuAYllLbwPILYL7n8RopiatFTicqHIDMP0hGt/68T3aOr2qLkWsUjcHH29T69WIfn/vZezGYZuYAetrNpptDnDUM+qoim0bh0WzzQHWueAqWLPVZN1lc4FNt23lY723u1CTGnv3mNq7bKIJbn0NptnmMA62DgrNFlrpZd0LnLONCaaincumu5l1DdiJJRvfAgj8kMZinlZZW+vIhop3XLp21ErAtsZO2uGw11E4U8HDGexM99z2HUEasKYv2+2HlYDjROpuk4F/RefRulCGErCpk7EbqgO/kE3Zq34xzEIT41DrXPAcVF0sHI81cc1hLjsvia9JhKNncg1Y5nHbbGkXlf8IeFpFn3eperjYnlW1tYMgetp7Wumm8uW7hbHrVPlGo9BcW81OC3BMq5a1Bjl5rY1UtjizVqY5bwmD8Vg0tR6RV1lt7H1V/esa5zcMgby6OhgEi9orKC+AsjVIv0/+CLQw1pmHQChcQFmGeGJcCmgA8fcw6bsF2Ojt53BYmmSR9riJjv66REk+AR1gfR8qxvyBAAAAAElFTkSuQmCC"
+                                                                        width="30" height="30"></a></li>
+                <li><a href="https://www.linkedin.com/in/vimalniroshan/" target="_blank" title="LinkedIn"><img
+                        class="icon icons8-LinkedIn"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAB50lEQVRIS+2XjU3DMBCFXycANoAJ2k4AbAATUCYAJqBMABsAG7ABMAFlA5iAMgHoi+6qa3SpBL0gIdWSldix/Pzu5/ky0HI7l3QiadSaX3c4k3Qj6d43GtjLtqRHSTu2gIWVDSKQ+pB0KGnuwADR+TivRAx7QQ7WQ0ljgAGjc6q+QB0fcAhOAeblzk4TybKI/lZsgSaOAP4yuz8Ff99KOrIxwMd2wIozHBBPGfDUQAEGlDGRvleBKqkTGOZ0AL1hlXER605g/L1l5gWYhQ/m7wrSncC7xpicI8pZeGoB2DswuYaPiWrYvpqZSTmsEdt7iHwOyWFXCdBKH+8n1GBNtLebi8+k9QGXXSXp+OPgYpNLSa524BCAzD2bDmAdGtYiX7EcEhktUALMJjBts3XysG4kMlijBJj9iAPynCex4Kz9G1rAwXy+DBgzugazKRdB1ABYE3CY3tMzVa4uAcl87DlOCrI5zPB5VDkOwTp6GXC6aRKAG+C1fbwxdZOj/zK4uPi9FHJN9jyO4gBDtHspR1sCkq7Jij2UJyvoAYygLr9eFjNGSFCq7AZz5eI58fL2zIT8L8rbF67LWNAzcdFjbY2eXxvBUfyFwadUF5i6r1+YT4uHxS+M+wSR9ws8cdWvp7guIbTw/zdCsONqsD6sVAAAAABJRU5ErkJggg=="
+                        width="30" height="30"></a></li>
             </ul>
         </nav>
     </div>
 </header>
 <main class="content">
-    <div class="overview-container alt-bg-color">
-    <div class="overview">
-        <div class="overview-left">
-            <div class="overview-text">
-                Hi, I'm Vimal Niroshan, a Software Architect from San Francisco Bay Area
-                <div class="contact">
-                    <a href="https://www.linkedin.com/in/vimalniroshan/" target="_blank" title="LinkedIn"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABwklEQVR4nO2ZP0vDQByGkwsOruIkuGpXP4GLWyuufgk/g4OUXHFQEId2cFFwcHJUsC1mFPGutNpCLdY6VIp/2kT7N/1J0latbbGJklzgHninHMf75HdZLoLA4XA4TCPJdAXJJI5kqiFMwZHIVBMxjUkyWf5TeRET7FhpPDwiJkH7b97l8qgbKUQClgXMY8NAeWRMQaZR6wKYqG4XR73IpGJDgIHi+Cv/JuCLpOG8oIHW0EEpaDAfTntLQClo8J34veYtAa2h9wmodd1bAorXJ+CLpE0JYxKxvApz4RtvCSCXInAB3Mkwxnk+u3sN2xclSJWqUG224bXWMo/i2ukDTG4m2BZY2MvA41sTRnFZfIeZnRS7AtmXOvxGLK+CxKrAuPiPcmwK6G0wz//S4S2sHucheqcOXbeffGZTYF0p9q2ZCCXgJFcZWJd5qrEpML2dHNhn8SA7sK5ca7En0P7xvJepreTYa12fgN29EBfAXMCEC2AuQLkA4gIWGbWRWxE8fbWIadmygHE/z0BxMCJiemZZwPi54HZx1I2Er/yWBTpTIEG3y4uYbNgq/zmJEAkY9/POfhNENY6N7TfP4XA4glN8AJJwntfiYf8PAAAAAElFTkSuQmCC" width="30" height="30" alt="linkedin"></a>
-                    <a href="https://github.com/vimalniroshan" target="_blank" title="GitHub"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFl0lEQVR4nO2abWiWZRTHf0u3Z2Wlj62pmNkLlSsZBAkVLYioLco0kMKsyMqCUb6sN3oljBBNCmwt+lBB0ofqU2amERZY2XovlmtLI20KoYWEq+msJw79Lzjc3vf9vM8K/3DDdl/nOte5Xs45/3PdDxzB/xdZYDbwJPAW8B3wK7Bfj/3dqzaTmQWM41+CDDAP2AAcBHJFPtZnvXSYrhHH0UAHsNMZNQRsBB7RzjRpl2qBOv19ttoeBd5Tn9DfdC0B6kdqElcAW50BnwK3AWNL0GVH63bgc6fve6CNKsJWqssNaINfXkH9ZvyXTn9nNY7bBOAzDTAI3AWMqvQg/KNzEfC7xvoEaKyU8lO03TlFnelUH81AnztqZkNZOFFhNKxOAyOH8cCHGtt8cmI5PhGO00fAGEYexwIfu6BSks90ueNkqxNwKrAb+AX4Clipo1AqzgeeBXqAvcAPkZ1vcMfMAkDRITY4dtQnXo9JbH8CLwOTgFbgKWAT0A/s09OvdzbxS4GTgTUJibIzMmazCwCmv+BkF/KERaco9qrteuBaYHUksRX7/AY8r0R5p3PwKBa7toKSZofLE9EQW+sMsAkHTAXe1c5sBh4AWoAz5Ftj9PfFwMPyvb+0uz68TnaTi2K0jnJOk0pFxtGOuGRXA/whI46JGcgMKRRTpc9jksb+Oc+RH8jn+PNchEhCcDzjUpVGi4uScahxdMaOdiI2SMi4UxJek8wNVB73FBCd7pDMuiSBrGj1UB4CuFKKnqPyeEO6706Ryaq+GU6yc7aUGBVPQqMc0Zz6gvLtTrRhIBJMonhfcjPTVtrqiSQ8KJlXqB42aoybUmQek8yKuMa1arQSNAmBslxC9XCjxjBfTMI1knkzrrE/TzQaLR86WOWydJrs2JIic45kjNAegj1qPCGhc4PaTa6aOEnj/JgiE2wxzncI9qvR6us4ZNRu0eIoqodzNc7XKTLBFouwiRP5Ftil6xv/hB3LiQFXC3M0hjGIbcCOiB3bNcnEiQRDLxRVyLo4fZz+D2zVytFqYbXGeELFVDbyTHEMYHeasy8W6XsReEd0pV/8Z8id32oUWme5MfbpZPTJBmMdLygFdKQ5+1rHc5YDC8T9zwPO1C7ZznwguZcq7CumO1SDz7jVnyYb2nR1tNyVwHZCEhPisjwDNmm1cjoGZkC5mKIFzKkWyqdzWVpCnJWHeXpcJKoS6MQtqq+LhfnAQ25htqpyzIfNaRRlnJLdAW1rwFJFkE2qr335+YWLZGbMq2KwVsqerluYOvGmifKBq0SD3lYoD/2NMBZyUzJeNlrf45OE1seUuCEI5KTgZtc2SjVMd4ll7rDoeDGUZ1E+Go+KFRP6xr1rcccop10zrhPFaQoQofBKe3ZorFJuEXukY26hpa4/f9dFDLHkOd+VuxmVufO1aybztI5XiP+Tddt+QKWyJb5icbV0/1QI31vi7rOMKIYSM2TTHhmStuKPp+hfIJmdMXV/GmrdredCCkC9u+v1ldqtrp5vVXEzqHeDCgghiiXxtbAoWyRrO1go7lWfvmLYd5s7QpaMUOTZpfdduliuianl08rUgPa0eiIGMxwXLPpTRqc6bnPU/jK38kmPsdd8aJasLUw+NMgGk19FCcjoBj6nfBFyy3Rl9AHV7tGJFHIL6EuCNGRdruoup6BrdP7SrQSXhDCRQpFPvlH+mFMua6zkh57tzmeKNawY+RnKNWESZX/o8Z/ewuqYj9wXE5kqMZE64H7nh92V/PQWkHEBIOSZK13kKmciNdLV696vqva391Z31MKE2suYSHtkAv0V/lqcinpVkgMxUWup6EeTjmS9ngl6N0eZP9rPaMfCw/ULiIzI37oSf8IxrN+mzD1cE4jDWBHNFcrYvbrQCD+q2SNqskYyM9PqiSPgP46/AXoFNkxBLvgnAAAAAElFTkSuQmCC" width="30" height="30" alt="github"></a>
-                    <span class="superscript-image">
-                        <span id="email-address">email@vimalniroshan.com</span>
-                        <img onclick="copyToClipboard('email-address')" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA9ElEQVR4nO3WQQqDMBSE4bmERXrRbntGkUpPM10VRGI1Ou9FyvwQutP3GQ0FtFG0JgC9eLYmELbGfIdQXIMtMUrIMPvtRPNVD6G4RjfDpO+MEoKWmIcY0hTzDNjVbs83ozouX6KnxZVd3cQoz/43gHsQZPM1U5/9ZzHcmGcVo4RMgo+SO+YpvmZKSC/A8MAaIs7+G4DxxGvGg0sOUWBqCoVkYhgNycIwA5KBYRYkGsNMSCSGEZDa/2Z/AeEVIbUZUsgQRYYUMkSRIYUMUWRIIUMUGVLIEEWGFDJE0fKeFCwYcqKQe9KQ4xnyK0OuCmGDZQgWfQC4nQCGD5qCoAAAAABJRU5ErkJggg==" alt="copy">
-                    </span>
+    <div class="section alt-bg-color">
+        <div class="overview-container">
+            <div class="overview">
+                <div class="overview-left">
+                    <div class="overview-text">
+                        Hi, I'm Vimal Niroshan, a Software Architect from San Francisco Bay Area
+                        <div class="contact">
+                            <a href="https://www.linkedin.com/in/vimalniroshan/" target="_blank" title="LinkedIn"><img
+                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABwklEQVR4nO2ZP0vDQByGkwsOruIkuGpXP4GLWyuufgk/g4OUXHFQEId2cFFwcHJUsC1mFPGutNpCLdY6VIp/2kT7N/1J0latbbGJklzgHninHMf75HdZLoLA4XA4TCPJdAXJJI5kqiFMwZHIVBMxjUkyWf5TeRET7FhpPDwiJkH7b97l8qgbKUQClgXMY8NAeWRMQaZR6wKYqG4XR73IpGJDgIHi+Cv/JuCLpOG8oIHW0EEpaDAfTntLQClo8J34veYtAa2h9wmodd1bAorXJ+CLpE0JYxKxvApz4RtvCSCXInAB3Mkwxnk+u3sN2xclSJWqUG224bXWMo/i2ukDTG4m2BZY2MvA41sTRnFZfIeZnRS7AtmXOvxGLK+CxKrAuPiPcmwK6G0wz//S4S2sHucheqcOXbeffGZTYF0p9q2ZCCXgJFcZWJd5qrEpML2dHNhn8SA7sK5ca7En0P7xvJepreTYa12fgN29EBfAXMCEC2AuQLkA4gIWGbWRWxE8fbWIadmygHE/z0BxMCJiemZZwPi54HZx1I2Er/yWBTpTIEG3y4uYbNgq/zmJEAkY9/POfhNENY6N7TfP4XA4glN8AJJwntfiYf8PAAAAAElFTkSuQmCC"
+                                    width="30" height="30" alt="linkedin"></a>
+                            <a href="https://github.com/vimalniroshan" target="_blank" title="GitHub"><img
+                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABZ0lEQVR4nN2Vu0oDURCGPxOF2EQLQVJaqhAsfARBQhCDImKlpU8hXkDR0tLGa2lrYecLCIJEE7GwUUS8dKbSyIFZWMc5uyex0h+mOfv9/5w9uzsL/11ZoAzsAhfAC/AKVGVtWpi2NA7UgWZK3comgtUBrACfAeFROXZLvKlaayG4qcp5E1VWhhGgAlwbYTVgBuhT6yVfeKecZxzukmt5oAh0SxVlzSljNI5831QxdjkQcKT9hm/CAg8VdAPkAhrkjLdtzwKrCpoKCI80qbyXFvSkoOiMQ5RXXvcx/tDzLxr0KG/Dgs4VNNtCgznlvbOgHQXdA4MB4UPAg/IeW2DJeN0awLqEaA0DG8Jo37zVICNP3wFLwEnMsG3wB55x8Sgfo6kx4AN4BwrAqRgKnjuwGiyQomUBN1M4PSJc7ROoVRnBV8BZAhcPP/LNoKQfTk2OzCe3iTdgMfRfoJUFRhOuu/He207w39EX2SiwvEzSpyQAAAAASUVORK5CYII="
+                                    width="30" height="30" alt="github"></a>
+                            <div class="copy" id="overview-contact-id" onclick="copyToClipboard('overview-contact-id')">
+                                email@vimalniroshan.com
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="overview-right">
+                    <img src="static/images/me-overview.jpg" alt="Vimal Niroshan Sengoden">
                 </div>
             </div>
         </div>
-        <div class="overview-right">
-            <img src="static/images/me-overview.jpg">
+    </div>
+
+    <div class="section">
+        <h1>EXPERIENCE</h1>
+        <div class="timeline">
+            <div class="timeline-event">
+                <div class="event-caption">SEP 2020 - CURRENT</div>
+                <div class="event-content">
+                    <span class="larger-bold">Principal Architect @ Tavant Technologies Inc.</span>
+                    <br/>
+                    <span class="smaller-bold"><br/>Disney+ Marketing Intelligence Unified Messaging Platform (UMP)</span>
+                    <span class="code"><br/>Technologies: Java, Spring, Spring JPA, MySQL, AWS, EMR</span>
+                    <ul>
+                        <li>Lead architect responsible for various services and solutions in UMP</li>
+                        <li>Designed and Developed Journey and Batch Services for Marketing message delivery</li>
+                        <li>Data pipeline for sourcing the audience data, filtering and message delivery</li>
+                    </ul>
+                    <span class="smaller-bold"><br/>Enact MI Policy Admin, Cash & Billing Application </span>
+                    <span class="code"><br/>Technologies: Java, Spring, Spring JPA, Drools, PostgreSQL, AWS</span>
+                    <ul>
+                        <li>Led discovery sessions with Enact business team and technical team to understand their
+                            business
+                            problem and came-up with technical solutions and project execution strategy
+                        </li>
+                        <li>Led the team of business analysts technical architects in the discovery exercise</li>
+                    </ul>
+                    <span class="smaller-bold"><br/>MGIC - iQ+ Platform for Mortgage Insurance Origination, Risk Evaluation, Servicing & Claims</span>
+                    <span class="code"><br/>Technologies: Java, Spring, Spring JPA, Camunda, Drools, PostgreSQL, AWS, Softworks AI</span>
+                    <ul>
+                        <li>Led discovery sessions with MGIC claims and servicing business team to understand their
+                            business
+                            and came-up with technical application architecture and transformation approach from legacy
+                            systems to new iQ+ based application.
+                        </li>
+                        <li>Led the technical team on Risk Evaluation Transformation obstacles</li>
+                        <li>Leading the technical team to define the origination, servicing and claims functionalities
+                            addressing business needs.
+                        </li>
+                        <li>Designed and Developed Data Migration solution for new architecture</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-event">
+                <div class="event-caption">MAR 2013 - SEP 2020</div>
+                <div class="event-content">
+                    <span class="larger-bold">Senior Technical Architect @ Tavant Technologies Inc.</span>
+                    <br/>
+                    <span class="smaller-bold"><br/>National MI - Axis Platform for Mortgage Insurance Origination & Servicing</span>
+                    <span class="code"><br/>Technologies: Java, Spring, Hibernate, REST, SOAP, Servlets, Javascript, jQuery, Drools, AWS</span>
+                    <ul>
+                        <li>Led initial discovery sessions with National MI business stake holders to understand their
+                            business to come-up with an technical architecture to meet their technology need.
+                        </li>
+                        <li>Led various technical analysis with business owners to come up with technical solutions to
+                            their
+                            day to day functional requirements including : automated billing and payment processing of
+                            insurance certificates.
+                        </li>
+                        <li>Led the initial technical analysis for National MI’s pricing and eligibility rules for
+                            mortgage
+                            insurance applications. Designed and developed initial Drools based solution for the same.
+                        </li>
+                        <li>Contributed to business transformation strategies during new platform development and
+                            on-boarding process.
+                        </li>
+                        <li>Designed and developed data migration and customer migration solutions to migrate data,
+                            users
+                            from legacy systems of National MI.
+                        </li>
+                        <li>Designed and developed the automated accounting solutions for the insurance business
+                            transactions for National MI.
+                        </li>
+                        <li>Designed the reinsurance technical solution and lead the development team on implementation.
+                        </li>
+                        <li>Contributed to various Axis B2B system integration solutions, design and development.</li>
+                        <li>Build proof of concept on OCR solution for remittance and cheque processing.</li>
+                        <li>Led development team on building various technical solutions and guided them with best
+                            practices
+                            and removed/addressed blockers in their development process.
+                        </li>
+                        <li>Handled critical production issues and situations to address the immediate business needs.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-event">
+                <div class="event-caption">JUN 2011 - FEB 2013</div>
+                <div class="event-content">
+                    <span class="larger-bold">Technical Lead @ Tavant Technologies India Pvt. Ltd.</span>
+                    <br/>
+                    <span class="smaller-bold"><br/>Machinima Magic Live Streaming</span>
+                    <span class="code"><br/>Technologies: Java, REST, CometD, Servlets, Javascript, Nodejs, jQuery, ZeroMQ.</span>
+                    <ul>
+                        <li>Analyzed various possible statistic streaming solutions using Node.js, CometD, ZeroMQ.</li>
+                        <li>Designed and developed a prototype for game statistics streaming for Machinima Youtube
+                            channel.
+                        </li>
+                    </ul>
+                    <span class="smaller-bold"><br/>Electronic Arts (EA) - Open For Business (OFB)</span>
+                    <span class="code"><br/>Technologies: Java, REST, Sping, Hibernate, Apache OFB</span>
+                    <ul>
+                        <li>Contributed to OFB platform technology transformation strategies.</li>
+                        <li>Contributed to performance improvement to OFB platform functionalities.</li>
+                        <li>Designed and developed various user stories for EA - OFB platform.</li>
+                        <li>Designed various product attribute structuring and organization of information to quick
+                            search
+                            and maintenance.
+                        </li>
+                        <li>Built POCs for experimental solutions and integration solutions.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-event">
+                <div class="event-caption">APR 2010 - JUN 2011</div>
+                <div class="event-content">
+                    <span class="larger-bold">Systems Analyst @ Goldman Sachs Inc.</span>
+                    <br/>
+                    <span class="smaller-bold"><br/>Checklist Application (Task management application)</span>
+                    <span class="code"><br/>Technologies: Java, Spring, Hibernate, Servlets</span>
+                    <ul>
+                        <li>Reverse engineered Checklist 2.0 application architecture and benchmarked the capabilities
+                        </li>
+                        <li>Involved and contributed to the design of new task management system architecture to support
+                            various flavors of tasks.
+                        </li>
+                        <li>Designed and developed Checklist 3.0 application services on new task management
+                            architecture.
+                        </li>
+                        <li>Developed data migration solution for Checklist 2.0 to 3.0 application.</li>
+                        <li><b>Appreciated by business</b> owners for the high quality of Checklist 3.0 application.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-event">
+                <div class="event-caption">AUG 2006 - APR 2010</div>
+                <div class="event-content">
+                    <span class="larger-bold">Senior Application Developer @ BNY Mellon Technology Pvt. Ltd.</span>
+                    <br/>
+                    <span class="smaller-bold"><br/>Business Components Development & NetX360</span>
+                    <span class="code"><br/>Technologies: Java, JSF, Servlets, dojo, javascript, jQuery, Python</span>
+                    <ul>
+                        <li>Designed and developed various security trading business component prototypes for NetX360
+                            framework.
+                        </li>
+                        <li>Contributed to the design and architecture of NetX360 framework.</li>
+                        <li>Developed and published NetX Studio (an application) on NetX360 framework with the working
+                            model
+                            of business components based on prototypes.
+                        </li>
+                        <li>Developed highly customizable business component like : Realized/Unrealized Gain/Loss
+                            functionalities, Rate Quote functionalities, Institutional broker dealers hierarchical asset
+                            views. with lazy loading and various caching mechanisms.
+                        </li>
+                        <li>Researched and published various front-end technology choices (JSF, dojo, jQuery, Flash
+                            etc.)
+                            for NetX360 framework.
+                        </li>
+                    </ul>
+                    <span class="smaller-bold"><br/>e-Account Opening</span>
+                    <span class="code"><br/>Technologies: Java, Struts, Servlets, javascript, HTML, CSS</span>
+                    <ul>
+                        <li>Developed a prototype for brokerage e-account opening through online services.</li>
+                    </ul>
+                    <span class="smaller-bold"><br/>Custom brokerage site development</span>
+                    <span class="code"><br/>Technologies: Java, Struts, Servlets, javascript, HTML, CSS</span>
+                    <ul>
+                        <li>Designed and developed brokerage web sites for various IBDs of Pershing LLC.</li>
+                    </ul>
+                    <span class="smaller-bold"><br/>Select 2.0 Framework development.</span>
+                    <span class="code"><br/>Technologies: Java, Struts, Servlets, javascript, HTML, CSS, Python</span>
+                    <ul>
+                        <li>Part of the development team for Select 2.0 framework development.</li>
+                        <li>Select 2.0 project won the ‘The Best Project of the Year 2008’ and got appreciation for my
+                            contribution.
+                        </li>
+                        <li>Built an automation script to rollout new trading sites in Select 2.0 framework which
+                            reduced
+                            the time taken to generate customized the style sheet and to generate customer configuration
+                            files.
+                        </li>
+                    </ul>
+                    <span class="smaller-bold"><br/>Trading site development using Select 1.0 framework.</span>
+                    <span class="code"><br/>Technologies: Java, Struts, Servlets, javascript, HTML, CSS, Python</span>
+                    <ul>
+                        <li>Developed various trading sites with Select 1.0.</li>
+                        <li>The experience made me to automate the no-brainer development work into 2 min script
+                            execution
+                            with prompts. The automation script has greatly reduced the turn around time for Select 1.0
+                            trading sites and QA efforts and greatly appreciated by everybody.
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
-    </div>
-    <table class="table-timeline">
-        <tbody>
-        <tr>
-            <th class="section-title">EXPERIENCE</th>
-            <th></th>
-        </tr>
-        <tr>
-            <td class="td-caption">SEP 2020 - CURRENT</td>
-            <td class="td-content">
-                <span class="large-bold">Principal Architect @ Tavant Technologies Inc.</span>
-                </br>
-                <span class="project"><br/>Disney+ Marketing Intelligence Unified Messaging Platform (UMP)</span>
-                <span class="tech"><br/>Technologies: Java, Spring, Spring JPA, MySQL, AWS, EMR</span>
-                <ul>
-                    <li>Lead architect responsible for various services and solutions in UMP</li>
-                    <li>Designed and Developed Journey and Batch Services for Marketing message delivery</li>
-                    <li>Data pipeline for sourcing the audience data, filtering and message delivery</li>
-                </ul>
-                <span class="project"><br/>Enact MI Policy Admin, Cash & Billing Application </span>
-                <span class="tech"><br/>Technologies: Java, Spring, Spring JPA, Drools, PostgreSQL, AWS</span>
-                <ul>
-                    <li>Led discovery sessions with Enact business team and technical team to understand their business
-                        problem and came-up with technical solutions and project execution strategy
-                    </li>
-                    <li>Led the team of business analysts technical architects in the discovery exercise</li>
-                </ul>
-                <span class="project"><br/>MGIC - iQ+ Platform for Mortgage Insurance Origination, Risk Evaluation, Servicing & Claims</span>
-                <span class="tech"><br/>Technologies: Java, Spring, Spring JPA, Camunda, Drools, PostgreSQL, AWS, Softworks AI</span>
-                <ul>
-                    <li>Led discovery sessions with MGIC claims and servicing business team to understand their business
-                        and came-up with technical application architecture and transformation approach from legacy
-                        systems to new iQ+ based application.
-                    </li>
-                    <li>Led the technical team on Risk Evaluation Transformation obstacles</li>
-                    <li>Leading the technical team to define the origination, servicing and claims functionalities
-                        addressing business needs.
-                    </li>
-                    <li>Designed and Developed Data Migration solution for new architecture</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td class="td-caption">MAR 2013 - SEP 2020</td>
-            <td class="td-content">
-                <span class="large-bold">Senior Technical Architect @ Tavant Technologies Inc.</span>
-                </br>
-                <span class="project"><br/>National MI - Axis Platform for Mortgage Insurance Origination & Servicing</span>
-                <span class="tech"><br/>Technologies: Java, Spring, Hibernate, REST, SOAP, Servlets, Javascript, jQuery, Drools, AWS</span>
-                <ul>
-                    <li>Led initial discovery sessions with National MI business stake holders to understand their
-                        business to come-up with an technical architecture to meet their technology need.
-                    </li>
-                    <li>Led various technical analysis with business owners to come up with technical solutions to their
-                        day to day functional requirements including : automated billing and payment processing of
-                        insurance certificates.
-                    </li>
-                    <li>Led the initial technical analysis for National MI’s pricing and eligibility rules for mortgage
-                        insurance applications. Designed and developed initial Drools based solution for the same.
-                    </li>
-                    <li>Contributed to business transformation strategies during new platform development and
-                        on-boarding process.
-                    </li>
-                    <li>Designed and developed data migration and customer migration solutions to migrate data, users
-                        from legacy systems of National MI.
-                    </li>
-                    <li>Designed and developed the automated accounting solutions for the insurance business
-                        transactions for National MI.
-                    </li>
-                    <li>Designed the reinsurance technical solution and lead the development team on implementation.
-                    </li>
-                    <li>Contributed to various Axis B2B system integration solutions, design and development.</li>
-                    <li>Build proof of concept on OCR solution for remittance and cheque processing.</li>
-                    <li>Led development team on building various technical solutions and guided them with best practices
-                        and removed/addressed blockers in their development process.
-                    </li>
-                    <li>Handled critical production issues and situations to address the immediate business needs.</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td class="td-caption">JUN 2011 - FEB 2013</td>
-            <td class="td-content">
-                <span class="large-bold">Technical Lead @ Tavant Technologies India Pvt. Ltd.</span>
-                </br>
-                <span class="project"><br/>Machinima Magic Live Streaming</span>
-                <span class="tech"><br/>Technologies: Java, REST, CometD, Servlets, Javascript, Nodejs, jQuery, ZeroMQ.</span>
-                <ul>
-                    <li>Analyzed various possible statistic streaming solutions using Node.js, CometD, ZeroMQ.</li>
-                    <li>Designed and developed a prototype for game statistics streaming for Machinima Youtube
-                        channel.
-                    </li>
-                </ul>
-                <span class="project"><br/>Electronic Arts (EA) - Open For Business (OFB)</span>
-                <span class="tech"><br/>Technologies: Java, REST, Sping, Hibernate, Apache OFB</span>
-                <ul>
-                    <li>Contributed to OFB platform technology transformation strategies.</li>
-                    <li>Contributed to performance improvement to OFB platform functionalities.</li>
-                    <li>Designed and developed various user stories for EA - OFB platform.</li>
-                    <li>Designed various product attribute structuring and organization of information to quick search
-                        and maintenance.
-                    </li>
-                    <li>Built POCs for experimental solutions and integration solutions.</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td class="td-caption">APR 2010 - JUN 2011</td>
-            <td class="td-content">
-                <span class="large-bold">Systems Analyst @ Goldman Sachs Inc.</span>
-                </br>
-                <span class="project"><br/>Checklist Application (Task management application)</span>
-                <span class="tech"><br/>Technologies: Java, Spring, Hibernate, Servlets</span>
-                <ul>
-                    <li>Reverse engineered Checklist 2.0 application architecture and benchmarked the capabilities</li>
-                    <li>Involved and contributed to the design of new task management system architecture to support
-                        various flavors of tasks.
-                    </li>
-                    <li>Designed and developed Checklist 3.0 application services on new task management architecture.
-                    </li>
-                    <li>Developed data migration solution for Checklist 2.0 to 3.0 application.</li>
-                    <li><b>Appreciated by business<b> owners for the high quality of Checklist 3.0 application.</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td class="td-caption">AUG 2006 - APR 2010</td>
-            <td class="td-content">
-                <span class="large-bold">Senior Application Developer @ BNY Mellon Technology Pvt. Ltd.</span>
-                </br>
-                <span class="project"><br/>Business Components Development & NetX360</span>
-                <span class="tech"><br/>Technologies: Java, JSF, Servlets, dojo, javascript, jQuery, Python</span>
-                <ul>
-                    <li>Designed and developed various security trading business component prototypes for NetX360
-                        framework.
-                    </li>
-                    <li>Contributed to the design and architecture of NetX360 framework.</li>
-                    <li>Developed and published NetX Studio (an application) on NetX360 framework with the working model
-                        of business components based on prototypes.
-                    </li>
-                    <li>Developed highly customizable business component like : Realized/Unrealized Gain/Loss
-                        functionalities, Rate Quote functionalities, Institutional broker dealers hierarchical asset
-                        views. with lazy loading and various caching mechanisms.
-                    </li>
-                    <li>Researched and published various front-end technology choices (JSF, dojo, jQuery, Flash etc.)
-                        for NetX360 framework.
-                    </li>
-                </ul>
-                <span class="project"><br/>e-Account Opening</span>
-                <span class="tech"><br/>Technologies: Java, Struts, Servlets, javascript, HTML, CSS</span>
-                <ul>
-                    <li>Developed a prototype for brokerage e-account opening through online services.</li>
-                </ul>
-                <span class="project"><br/>Custom brokerage site development</span>
-                <span class="tech"><br/>Technologies: Java, Struts, Servlets, javascript, HTML, CSS</span>
-                <ul>
-                    <li>Designed and developed brokerage web sites for various IBDs of Pershing LLC.</li>
-                </ul>
-                <span class="project"><br/>Select 2.0 Framework development.</span>
-                <span class="tech"><br/>Technologies: Java, Struts, Servlets, javascript, HTML, CSS, Python</span>
-                <ul>
-                    <li>Part of the development team for Select 2.0 framework development.</li>
-                    <li>Select 2.0 project won the ‘The Best Project of the Year 2008’ and got appreciation for my
-                        contribution.
-                    </li>
-                    <li>Built an automation script to rollout new trading sites in Select 2.0 framework which reduced
-                        the time taken to generate customized the style sheet and to generate customer configuration
-                        files.
-                    </li>
-                </ul>
-                <span class="project"><br/>Trading site development using Select 1.0 framework.</span>
-                <span class="tech"><br/>Technologies: Java, Struts, Servlets, javascript, HTML, CSS, Python</span>
-                <ul>
-                    <li>Developed various trading sites with Select 1.0.</li>
-                    <li>The experience made me to automate the no-brainer development work into 2 min script execution
-                        with prompts. The automation script has greatly reduced the turn around time for Select 1.0
-                        trading sites and QA efforts and greatly appreciated by everybody.
-                    </li>
-                </ul>
-            </td>
-        </tr>
-        </tbody>
-        <tbody class="alt-bg-color">
-        <tr>
-            <th class="section-title">EDUCATION</th>
-            <th></th>
-        </tr>
-        <tr>
-            <td class="td-caption">2008 - 2009</td>
-            <td class="td-content">
-                <span class="large-bold">Diploma in Business Management</span>
-                <span class="institute"><br/>Institute of Chartered Financial Analysts of India University, Tripura</span>
-            </td>
-        </tr>
-        <tr>
-            <td class="td-caption">2002 - 2006</td>
-            <td class="td-content">
-                <span class="large-bold">Bachelor of Engineering in Computer Science</span>
-                <span><br/><i>First class with Distinction</i></span>
-                <span class="institute"><br/>Anna University, Chennai</span>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="section alt-bg-color">
+        <h1>EDUCATION</h1>
+        <div class="timeline">
+            <div class="timeline-event">
+                <div class="event-caption">2008 - 2009</div>
+                <div class="event-content">
+                    <span class="larger-bold">Diploma in Business Management</span>
+                    <span class="smaller-italic"><br/>Institute of Chartered Financial Analysts of India University, Tripura</span>
+                </div>
+            </div>
+            <div class="timeline-event">
+                <div class="event-caption">2002 - 2006</div>
+                <div class="event-content">
+                    <span class="larger-bold">Bachelor of Engineering in Computer Science</span>
+                    <span><br/><i>First class with Distinction</i></span>
+                    <span class="smaller-italic"><br/>Anna University, Chennai</span>
+                </div>
+            </div>
+        </div>
 </main>
 <footer class="footbar">
     <div class="contact">
-        <a href="https://www.linkedin.com/in/vimalniroshan/" target="_blank" title="LinkedIn"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABwklEQVR4nO2ZP0vDQByGkwsOruIkuGpXP4GLWyuufgk/g4OUXHFQEId2cFFwcHJUsC1mFPGutNpCLdY6VIp/2kT7N/1J0latbbGJklzgHninHMf75HdZLoLA4XA4TCPJdAXJJI5kqiFMwZHIVBMxjUkyWf5TeRET7FhpPDwiJkH7b97l8qgbKUQClgXMY8NAeWRMQaZR6wKYqG4XR73IpGJDgIHi+Cv/JuCLpOG8oIHW0EEpaDAfTntLQClo8J34veYtAa2h9wmodd1bAorXJ+CLpE0JYxKxvApz4RtvCSCXInAB3Mkwxnk+u3sN2xclSJWqUG224bXWMo/i2ukDTG4m2BZY2MvA41sTRnFZfIeZnRS7AtmXOvxGLK+CxKrAuPiPcmwK6G0wz//S4S2sHucheqcOXbeffGZTYF0p9q2ZCCXgJFcZWJd5qrEpML2dHNhn8SA7sK5ca7En0P7xvJepreTYa12fgN29EBfAXMCEC2AuQLkA4gIWGbWRWxE8fbWIadmygHE/z0BxMCJiemZZwPi54HZx1I2Er/yWBTpTIEG3y4uYbNgq/zmJEAkY9/POfhNENY6N7TfP4XA4glN8AJJwntfiYf8PAAAAAElFTkSuQmCC" width="30" height="30" alt="linkedin"></a>
-        <a href="https://github.com/vimalniroshan" target="_blank" title="GitHub"><img src="data:image/png;base64,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" width="30" height="30" alt="github"></a>
-        <span class="superscript-image">
-            <span id="email-address">email@vimalniroshan.com</span>
-            <img onclick="copyToClipboard('email-address')" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA9ElEQVR4nO3WQQqDMBSE4bmERXrRbntGkUpPM10VRGI1Ou9FyvwQutP3GQ0FtFG0JgC9eLYmELbGfIdQXIMtMUrIMPvtRPNVD6G4RjfDpO+MEoKWmIcY0hTzDNjVbs83ozouX6KnxZVd3cQoz/43gHsQZPM1U5/9ZzHcmGcVo4RMgo+SO+YpvmZKSC/A8MAaIs7+G4DxxGvGg0sOUWBqCoVkYhgNycIwA5KBYRYkGsNMSCSGEZDa/2Z/AeEVIbUZUsgQRYYUMkSRIYUMUWRIIUMUGVLIEEWGFDJE0fKeFCwYcqKQe9KQ4xnyK0OuCmGDZQgWfQC4nQCGD5qCoAAAAABJRU5ErkJggg==" alt="copy">
-        </span>
+        <a href="https://www.linkedin.com/in/vimalniroshan/" target="_blank" title="LinkedIn"><img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABwklEQVR4nO2ZP0vDQByGkwsOruIkuGpXP4GLWyuufgk/g4OUXHFQEId2cFFwcHJUsC1mFPGutNpCLdY6VIp/2kT7N/1J0latbbGJklzgHninHMf75HdZLoLA4XA4TCPJdAXJJI5kqiFMwZHIVBMxjUkyWf5TeRET7FhpPDwiJkH7b97l8qgbKUQClgXMY8NAeWRMQaZR6wKYqG4XR73IpGJDgIHi+Cv/JuCLpOG8oIHW0EEpaDAfTntLQClo8J34veYtAa2h9wmodd1bAorXJ+CLpE0JYxKxvApz4RtvCSCXInAB3Mkwxnk+u3sN2xclSJWqUG224bXWMo/i2ukDTG4m2BZY2MvA41sTRnFZfIeZnRS7AtmXOvxGLK+CxKrAuPiPcmwK6G0wz//S4S2sHucheqcOXbeffGZTYF0p9q2ZCCXgJFcZWJd5qrEpML2dHNhn8SA7sK5ca7En0P7xvJepreTYa12fgN29EBfAXMCEC2AuQLkA4gIWGbWRWxE8fbWIadmygHE/z0BxMCJiemZZwPi54HZx1I2Er/yWBTpTIEG3y4uYbNgq/zmJEAkY9/POfhNENY6N7TfP4XA4glN8AJJwntfiYf8PAAAAAElFTkSuQmCC"
+                width="24" height="24" alt="linkedin"></a>
+        <a href="https://github.com/vimalniroshan" target="_blank" title="GitHub"><img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABZ0lEQVR4nN2Vu0oDURCGPxOF2EQLQVJaqhAsfARBQhCDImKlpU8hXkDR0tLGa2lrYecLCIJEE7GwUUS8dKbSyIFZWMc5uyex0h+mOfv9/5w9uzsL/11ZoAzsAhfAC/AKVGVtWpi2NA7UgWZK3comgtUBrACfAeFROXZLvKlaayG4qcp5E1VWhhGgAlwbYTVgBuhT6yVfeKecZxzukmt5oAh0SxVlzSljNI5831QxdjkQcKT9hm/CAg8VdAPkAhrkjLdtzwKrCpoKCI80qbyXFvSkoOiMQ5RXXvcx/tDzLxr0KG/Dgs4VNNtCgznlvbOgHQXdA4MB4UPAg/IeW2DJeN0awLqEaA0DG8Jo37zVICNP3wFLwEnMsG3wB55x8Sgfo6kx4AN4BwrAqRgKnjuwGiyQomUBN1M4PSJc7ROoVRnBV8BZAhcPP/LNoKQfTk2OzCe3iTdgMfRfoJUFRhOuu/He207w39EX2SiwvEzSpyQAAAAASUVORK5CYII="
+                width="24" height="24" alt="github"></a>
+        <div class="copy" id="footer-contact-id" onclick="copyToClipboard('footer-contact-id')">
+            email@vimalniroshan.com
+        </div>
     </div>
 </footer>
 <script language="JavaScript">

@@ -1,0 +1,276 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #fefefe;
+}
+
+.alt-bg-color {
+    background-color: gold;
+}
+
+/* IMPORTANT: Add margin to the top and bottom of your content
+           so it isn't covered by the fixed header and footer */
+.content {
+    padding: 60px 0px;
+}
+
+.section {
+}
+
+.section h1 {
+    font-family: sans-serif, Helvetica, sans-serif;
+    font-size: xx-large;
+    text-align: left;
+    padding: 20px;
+    margin: 0;
+}
+
+/*** Header section styles ***/
+
+.navbar {
+    position: fixed; /* Sticks the header to the viewport */
+    top: 0; /* Aligns it to the very top */
+    width: 100%; /* Ensures it spans the full width */
+    height: 60px;
+    background-color: #fff;
+    color: black;
+    display: flex;
+    justify-content: space-between; /* Puts logo on left, nav on right */
+    align-items: center;
+    z-index: 1000; /* Keeps header above other content */
+    margin: 0;
+}
+
+.navbar-left {
+    display: flex;
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: xx-large;
+    margin-left: 10px;
+    padding: 0;
+}
+
+.navbar-left img {
+    height: 40px; /* Sets a fixed height slightly smaller than the navbar */
+    width: auto; /* Maintains aspect ratio */
+    margin-right: 10px;
+}
+
+/* Optional: Add a hover effect to the logo */
+.navbar-left img:hover {
+    opacity: 0.8;
+}
+
+.navbar-right {
+    margin-right: 10px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex; /* Makes the list items horizontal */
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.1s;
+}
+.nav-links a:hover {
+    color: #bbb;
+}
+
+.menu-toggle, .hamburger {
+    display: none;
+}
+
+/* Responsive header-navbar on screens less than 600px wide */
+@media screen and (max-width: 600px) {
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        cursor: pointer;
+        z-index: 1001; /* Above the mobile menu */
+    }
+
+    /* Create the 3 lines of the hamburger */
+    .hamburger span {
+        height: 3px;
+        width: 100%;
+        background-color: black;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+
+    /* Transform Nav Links into a sliding right overlay */
+    .nav-links {
+        position: fixed;
+        top: 60px;
+        right: -100%; /* Hidden off-screen to the right */
+        width: 60px;
+        height: 100vh;
+        background-color: #fff;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        transition: right 0.5s ease-in-out; /* Smooth slide-in effect */
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+    }
+
+    /* THE MAGIC: When checkbox is checked, slide the menu in */
+    .menu-toggle:checked ~ nav .nav-links {
+        right: 0;
+    }
+    /* Optional: Animate hamburger into an 'X' when menu is open */
+    .menu-toggle:checked ~ .hamburger span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .menu-toggle:checked ~ .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle:checked ~ .hamburger span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+}
+
+/*** end of header style ***/
+
+/*** main section styles ***/
+
+
+
+/*** end of main section styles ***/
+
+/*** timeline styles ***/
+.timeline {
+}
+
+.timeline-event {
+    display: flex; /* Makes children line up horizontally */
+    justify-content: center; /* Centers horizontally */
+    align-items: start;
+}
+
+.event-caption {
+    width: 25%;
+    text-align: right;
+    vertical-align: top;
+    padding: 10px 40px;
+    color: #6b7280;
+}
+
+.event-content {
+    width: 75%;
+    border-left: 2px solid #d1d5db;
+    padding: 10px 40px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.event-content::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #d1d5db;
+    border-radius: 50%;
+    z-index: 1;
+    margin-left: -53px;
+    margin-top: -3px;
+}
+
+.event-content::before {
+    background-color: gold;
+}
+
+.event-content ul {
+    padding-inline-start: 0;
+    list-style-position: inside;
+}
+
+/** some tweaks to match site theme or alternating bg color **/
+.alt-bg-color .event-content::before {
+    background-color: white;
+}
+
+/*** end of timeline styles ***/
+
+/** common utility styles ***/
+
+.larger-bold {
+    font-size: larger;
+    font-weight: bold;
+}
+
+.smaller-bold {
+    font-size: smaller;
+    font-weight: bold;
+}
+
+.code {
+    font-family: "Courier New", Courier, monospace;
+}
+
+.smaller-italic {
+    font-size: smaller;
+    font-style: italic;
+}
+
+.copy {
+    cursor: copy;
+}
+
+.copy::after {
+    content: "\2750";
+    vertical-align: super;
+    font-size: smaller;
+    padding-left: 2px;
+    height: 0.1em;
+    display: inline-block;
+    transition: opacity 0.1s ease;
+}
+
+.copy:active::after {
+    opacity: 0.3;
+}
+
+/** end common utility styles ***/
+
+/*** footer section styles ***/
+
+.footbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: gold;
+    color: black;
+    display: flex;
+    justify-content: center; /* Puts logo on left, nav on right */
+    align-items: center;
+    z-index: 1000; /* Keeps header above other content */
+    margin: 0;
+}
+
+.contact {
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 3px;
+    font-size: smaller;
+}
+
+/*** end of footer section styles ***/
