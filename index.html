@@ -15,6 +15,9 @@
 
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="icon.png">
+    <!--link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet"-->
     <!--link rel="manifest" href="site.webmanifest"-->
     <link rel="stylesheet" href="static/css/styles.css">
     <style>
@@ -27,10 +30,9 @@
         .overview {
             display: flex; /* Makes children line up horizontally */
             column-gap: 20px; /* Adds space between the divs */
-            /* Optional: Aligns items vertically in the cross axis (center) */
             align-items: center;
-            font-family: Helvetica, sans-serif;
-            font-size: x-large;
+            font-size: xx-large;
+            font-family: "Oswald", sans-serif;
             padding: 20px;
             height: 500px;
         }
@@ -41,20 +43,57 @@
             justify-content: right;
         }
 
+        .overview-text {
+            width: 75%;
+            text-align: right;
+        }
+
+        .overview-text .contact {
+            font-size: large;
+            justify-content: right;
+        }
+
         .overview-right {
             width: 50%;
             display: flex;
             justify-content: left;
         }
 
-        .overview .overview-left .overview-text {
-            width: 60%;
-            text-align: right;
-        }
-
         .overview .overview-right img {
             width: 75%;
             height: auto;
+        }
+
+        @media screen and (max-width: 600px) {
+            .overview {
+                flex-direction: column;
+                row-gap: 20px;
+                justify-content: start;
+            }
+
+            .overview-left {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .overview-text {
+                width: 100%;
+                text-align: center;
+            }
+
+            .overview-text .contact {
+                justify-content: center;
+            }
+
+            .overview-right {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .overview .overview-right img {
+                width: 100%;
+                height: auto;
+            }
         }
     </style>
 </head>
@@ -103,7 +142,7 @@
             <div class="overview">
                 <div class="overview-left">
                     <div class="overview-text">
-                        Hi, I'm Vimal Niroshan, a Software Architect from San Francisco Bay Area
+                        HI, I'M VIMAL NIROSHAN, A SOFTWARE ARCHITECT FROM SAN FRANCISCO BAY AREA
                         <div class="contact">
                             <a href="https://www.linkedin.com/in/vimalniroshan/" target="_blank" title="LinkedIn"><img
                                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABwklEQVR4nO2ZP0vDQByGkwsOruIkuGpXP4GLWyuufgk/g4OUXHFQEId2cFFwcHJUsC1mFPGutNpCLdY6VIp/2kT7N/1J0latbbGJklzgHninHMf75HdZLoLA4XA4TCPJdAXJJI5kqiFMwZHIVBMxjUkyWf5TeRET7FhpPDwiJkH7b97l8qgbKUQClgXMY8NAeWRMQaZR6wKYqG4XR73IpGJDgIHi+Cv/JuCLpOG8oIHW0EEpaDAfTntLQClo8J34veYtAa2h9wmodd1bAorXJ+CLpE0JYxKxvApz4RtvCSCXInAB3Mkwxnk+u3sN2xclSJWqUG224bXWMo/i2ukDTG4m2BZY2MvA41sTRnFZfIeZnRS7AtmXOvxGLK+CxKrAuPiPcmwK6G0wz//S4S2sHucheqcOXbeffGZTYF0p9q2ZCCXgJFcZWJd5qrEpML2dHNhn8SA7sK5ca7En0P7xvJepreTYa12fgN29EBfAXMCEC2AuQLkA4gIWGbWRWxE8fbWIadmygHE/z0BxMCJiemZZwPi54HZx1I2Er/yWBTpTIEG3y4uYbNgq/zmJEAkY9/POfhNENY6N7TfP4XA4glN8AJJwntfiYf8PAAAAAElFTkSuQmCC"

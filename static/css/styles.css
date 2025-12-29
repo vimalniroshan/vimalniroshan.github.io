@@ -2,6 +2,27 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 200 700;
+    font-display: swap;
+    src: url(../fonts/Oswald/Oswald-VariableFont_wght.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* <weight>: Use a value from 200 to 700
+   <uniquifier>: Use a unique and descriptive class name
+
+.oswald-regular {
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+*/
+
 body {
     margin: 0;
     background-color: #fefefe;
@@ -21,8 +42,9 @@ body {
 }
 
 .section h1 {
-    font-family: sans-serif, Helvetica, sans-serif;
+    font-family: "Oswald", Helvetica, sans-serif;
     font-size: xx-large;
+    font-weight: 450;
     text-align: left;
     padding: 20px;
     margin: 0;
@@ -268,9 +290,8 @@ body {
 
 .contact {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     column-gap: 3px;
-    font-size: smaller;
 }
 
 /*** end of footer section styles ***/
