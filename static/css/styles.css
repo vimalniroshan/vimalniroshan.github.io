@@ -11,18 +11,6 @@
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/* <weight>: Use a value from 200 to 700
-   <uniquifier>: Use a unique and descriptive class name
-
-.oswald-regular {
-    font-family: "Oswald", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-}
-
-*/
-
 body {
     margin: 0;
     background-color: #fefefe;
@@ -36,18 +24,6 @@ body {
            so it isn't covered by the fixed header and footer */
 .content {
     padding: 60px 0px;
-}
-
-.section {
-}
-
-.section h1 {
-    font-family: "Oswald", Helvetica, sans-serif;
-    font-size: xx-large;
-    font-weight: 450;
-    text-align: left;
-    padding: 20px;
-    margin: 0;
 }
 
 /*** Header section styles ***/
@@ -86,10 +62,6 @@ body {
     opacity: 0.8;
 }
 
-.navbar-right {
-    margin-right: 10px;
-}
-
 .nav-links {
     list-style: none;
     display: flex; /* Makes the list items horizontal */
@@ -99,6 +71,14 @@ body {
 
 .nav-links li {
     margin-left: 20px;
+}
+
+.nav-links li:first-child {
+    margin-left: 0;
+}
+
+.nav-links li:last-child {
+    margin-right: 20px;
 }
 
 .nav-links a {
@@ -115,7 +95,7 @@ body {
 }
 
 /* Responsive header-navbar on screens less than 600px wide */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 665px) {
     .hamburger {
         display: flex;
         flex-direction: column;
@@ -124,6 +104,7 @@ body {
         height: 21px;
         cursor: pointer;
         z-index: 1001; /* Above the mobile menu */
+        margin-right: 15px;
     }
 
     /* Create the 3 lines of the hamburger */
@@ -153,6 +134,10 @@ body {
         margin: 20px 0;
     }
 
+    .nav-links li:last-child {
+        margin-right: 0;
+    }
+
     /* THE MAGIC: When checkbox is checked, slide the menu in */
     .menu-toggle:checked ~ nav .nav-links {
         right: 0;
@@ -173,9 +158,80 @@ body {
 
 /*** main section styles ***/
 
+.overview-container {
+    display: flex; /* Makes children line up horizontally */
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+}
 
+.overview {
+    display: flex; /* Makes children line up horizontally */
+    column-gap: 20px; /* Adds space between the divs */
+    align-items: center;
+    font-size: xx-large;
+    font-family: "Oswald", sans-serif;
+    padding: 20px;
+    height: auto;
+}
 
-/*** end of main section styles ***/
+.overview-left {
+    width: 50%;
+    display: flex;
+    justify-content: right;
+}
+
+.overview-text {
+    width: 75%;
+    text-align: right;
+}
+
+.overview-text .contact {
+    font-size: large;
+    justify-content: right;
+}
+
+.overview-right {
+    width: 50%;
+    display: flex;
+    justify-content: left;
+}
+
+.overview .overview-right img {
+    width: 75%;
+    height: auto;
+}
+
+@media screen and (max-width: 840px) {
+    .overview {
+        flex-direction: column;
+        row-gap: 20px;
+        justify-content: start;
+    }
+
+    .overview-left {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .overview-text {
+        width: 100%;
+        text-align: center;
+    }
+
+    .overview-text .contact {
+        justify-content: center;
+    }
+
+    .overview-right {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .overview .overview-right img {
+        width: 100%;
+        height: auto;
+    }
+}
 
 /*** timeline styles ***/
 .timeline {
@@ -219,17 +275,60 @@ body {
     background-color: gold;
 }
 
+.alt-bg-color .event-content::before {
+    background-color: white;
+}
+
 .event-content ul {
     padding-inline-start: 0;
     list-style-position: inside;
 }
 
-/** some tweaks to match site theme or alternating bg color **/
-.alt-bg-color .event-content::before {
-    background-color: white;
+@media screen and (max-width: 630px) {
+    .timeline-event {
+        display: flex; /* Makes children line up horizontally */
+        flex-direction: column;
+        justify-content: start;
+    }
+
+    .event-content {
+        width: 100%;
+        padding: 10px 10px 10px 10px;
+        margin-left: 20px;
+    }
+    .event-content::before {
+        display: none;
+    }
+
+    .event-caption {
+        width: 100%;
+        text-align: left;
+        border-left: 2px solid #d1d5db;
+        padding: 10px 10px 10px 10px;
+        margin-left: 20px;
+    }
+    .event-caption::before {
+        content: '';
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        border: 2px solid #d1d5db;
+        border-radius: 50%;
+        z-index: 1;
+        margin-left: -19px;
+        margin-top: 0px;
+    }
+    .event-caption::before {
+        background-color: gold;
+    }
+    .alt-bg-color .event-caption::before {
+        background-color: white;
+    }
 }
 
 /*** end of timeline styles ***/
+
+/*** end of main section styles ***/
 
 /** common utility styles ***/
 
@@ -243,13 +342,72 @@ body {
     font-weight: bold;
 }
 
-.code {
-    font-family: "Courier New", Courier, monospace;
-}
-
 .smaller-italic {
     font-size: smaller;
     font-style: italic;
+}
+
+.section {
+    scroll-margin-top: 60px;
+    padding-bottom: 10px;
+}
+
+.section h1 {
+    font-family: "Oswald", Helvetica, sans-serif;
+    font-size: xx-large;
+    font-weight: 450;
+    text-align: left;
+    padding: 20px 40px;
+    margin: 0;
+}
+
+.section h2 {
+    font-family: "Oswald", Helvetica, sans-serif;
+    font-size: x-large;
+    font-weight: 400;
+    text-align: left;
+    padding: 10px 20px;
+    margin: 0;
+}
+
+.summary-container {
+    display: flex; /* Makes children line up horizontally */
+    column-gap: 10px; /* Adds space between the divs */
+    align-items: start;
+    font-family: "Oswald", sans-serif;
+    padding: 20px;
+}
+
+.section-content {
+    font-family: Verdana, Tahoma, sans-serif;
+    font-size: medium;
+}
+
+.summary-container .left {
+    width: 55%;
+}
+
+.summary-container .left li {
+    line-height: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.summary-container .right li {
+    line-height: 1.75em;
+    margin-bottom: 0.5em;
+}
+
+.summary-container .right {
+    width: 45%;
+}
+
+.section-content li {
+    line-height: 1.75em;
+    margin-bottom: 1em;
+}
+
+.code {
+    font-family: "Courier New", Courier, monospace;
 }
 
 .copy {
@@ -271,6 +429,31 @@ body {
 }
 
 /** end common utility styles ***/
+
+@media screen and (max-width: 630px) {
+    .section h1 {
+        padding-left: 20px;
+    }
+
+    .awards {
+        padding-left: 20px;
+    }
+
+    .summary-container {
+        display: flex; /* Makes children line up horizontally */
+        flex-direction: column;
+        row-gap: 20px;
+        justify-content: start;
+    }
+
+    .summary-container .left {
+        width: 100%;
+    }
+
+    .summary-container .right {
+        width: 100%;
+    }
+}
 
 /*** footer section styles ***/
 

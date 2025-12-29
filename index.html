@@ -15,86 +15,9 @@
 
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="icon.png">
-    <!--link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet"-->
     <!--link rel="manifest" href="site.webmanifest"-->
     <link rel="stylesheet" href="static/css/styles.css">
     <style>
-        .overview-container {
-            display: flex; /* Makes children line up horizontally */
-            justify-content: center; /* Centers horizontally */
-            align-items: center; /* Centers vertically */
-        }
-
-        .overview {
-            display: flex; /* Makes children line up horizontally */
-            column-gap: 20px; /* Adds space between the divs */
-            align-items: center;
-            font-size: xx-large;
-            font-family: "Oswald", sans-serif;
-            padding: 20px;
-            height: 500px;
-        }
-
-        .overview-left {
-            width: 50%;
-            display: flex;
-            justify-content: right;
-        }
-
-        .overview-text {
-            width: 75%;
-            text-align: right;
-        }
-
-        .overview-text .contact {
-            font-size: large;
-            justify-content: right;
-        }
-
-        .overview-right {
-            width: 50%;
-            display: flex;
-            justify-content: left;
-        }
-
-        .overview .overview-right img {
-            width: 75%;
-            height: auto;
-        }
-
-        @media screen and (max-width: 600px) {
-            .overview {
-                flex-direction: column;
-                row-gap: 20px;
-                justify-content: start;
-            }
-
-            .overview-left {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .overview-text {
-                width: 100%;
-                text-align: center;
-            }
-
-            .overview-text .contact {
-                justify-content: center;
-            }
-
-            .overview-right {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .overview .overview-right img {
-                width: 100%;
-                height: auto;
-            }
-        }
     </style>
 </head>
 <body>
@@ -110,34 +33,35 @@
         </label>
         <nav>
             <ul class="nav-links">
-                <li><a href="#about" title="About"><img class="icon icons8-Manager"
-                                                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAB4UlEQVRIS9WW/TEEURDE+zIgAkIgAkSACLgIEAEiIANEgAgQwREBMpAB9aua2TrPvjezV1u15VXdH7cf09M9PTM700RnNhGuVgXekrRvSX9Kuh1KYCjwrqQbSZuSXgxsR9KBpMch4EOAjw300hh+GNC1JO59S5pLesgkkAWG4bsFrsl6KulCEmXwpKo5ZIEdDGat82yg0XNpc8EARpGMAJ5I2o7kzjKmfnuSYNQ6mO9JigllgbOMcTdlWRuLcbbGDkoCzZNl/Gr1xbWtQ2vhaiQfBTgrNebiNxowEjKhMFitR+n1e0lvBj4KY4IgNwkgZ9+hDNQWtl9jSU0cArMYaj2KEjyTWhhZcwFMixAcxqXJfF4jd8iWYEOAnTVSluZhsPCLXN9V4N8A15gxwxmrh5Gp/H6WMdJe2XDA3dTUFz+GQ2LqS2Ls62imhzVmGJxb0DsDpGW4vmHZ+6cPYFw/stYjOd7pPTXGBIch9713S7f6/3IhwNwnGPKf9a3TPmBkgyUv1IYFLHw3txYCOxwCyP/L8SWw71OGBLVsHRjDaD14jqWxKPd5CQwLAkafLrBkLnNwcvRl8mddlsAwIEjEdnmIeIu1iMOaZDu8Ejg9ebL9uvQcSnaeyfbxCjjtVyYD/gH+V2gftNGoSQAAAABJRU5ErkJggg=="
-                                                        width="30" height="30"></a></li>
-                <li><a href="#profile" title="Profile"><img class="icon icons8-Resume"
-                                                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAABZklEQVRIS+2X4TEEQRCFv8uACBABGZABIkAGMkAEyIAMZIAInAyEIAPqu5qpGls7tXPTiz/XVVu7d9Uzr+f12zezC/4pFiO4d8D+zPW8A5flnGPALykh36M1HKUJ8n31swYs6HUUMY13HkG7gQ+AZUcxIeAn4Bi46WAiBCz1h8DrkLLEwpgY94CPVGg31Q/AGfAInA/o3gW8yvgs2hJasRU/A9uAk64T3cCK6go4Aey1fS5F5vPsVG8lsCGNFpHjV6leh9phbjfVEVDHboCbvFpFvzVwfZpEWCo8bCA/zL1SRN7JssJnM5CGRVdTusTle6xVeh8LLVQ/zuH7rZm44vv0ZxewPfZEUgs93CuHuY4x9PTwJvHnVEcA89huqm8b0N04VLa076T8iwjVispe1cRV9lZBKS577HPWRteKGxY7mbIBXlFUO1d/JbFM8tiQoOWKM3muLk2gYd6mFDePyU+YppmiSd/UVn4fCCrXAgAAAABJRU5ErkJggg=="
-                                                            width="30" height="30"></a></li>
-                <li><a href="#blog" title="Blog"><img class="icon icons8-Blog"
-                                                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAB/0lEQVRIS8WWjTEEQRCF30VABmSACBABIiAEIkAEJwQiIANkQAZkQATUtzXvanZ2dnb2R5mqq9u96e7X/frvVvqns+rBvZB0vpBPD5LuU1t9wDeSjiS9zAS3Dey1TgkYwY7CSEesPxl4X9JWJei3pLcgOxv4ayTw9lLAlcF2xGZHTJH9FNBh5CxzPxuY9totAH/kWiYqzsnF9adUE9FOQCBCTqfxJb32eEHPpulI7XxKgh3FfQwd1xWhkc/jqGUAfJTkSi6ZuDX9AMdebi4K2rAAOwByKDyicHR9qq3ADHwliSGBgdy0Ipq9YPEyMHUa3p9Cj1vvXRKspId7HGa4rA3sKMhfCoxDzxGVyBBdk6tgDP3D8J6mwg5gF5mGHYAN1DfQvTBM7VAZQD2fNIDW4kmLC6OpApRSPLWbCgcZJqQgPq1hUgOMMnQ7p0MRA+glMRt4CKzmvjpiKplCcX/6mW+qMy4unkvycQobB0pUGyCePgaAzruovUhDSX4UcA19Y2SqqbaXrk6iQpl3hkg8udahkn2PruXjPt5EPlTVnmYeFFSr+91rEvr9W05+ErCV8N4jc4heRmbaw5NzjKGa7QMARZbr+WKOTyQdDIU08Z40MdObbohzTETki4WQmzwT8Ro1cs8Opy6azZX+oefC62sOUKrrdeuh0wFeEqxo6xfXaoycVikE/gAAAABJRU5ErkJggg=="
-                                                      width="30" height="30"></a></li>
-                <li><a href="#contact" title="Contact"><img class="icon icons8-Speech-Bubble"
-                                                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAACCElEQVRIS8WXjTX0QBSG362ADlABKrAlrAqsClCB7QAVoALbASpABeiADpwn596cySSTSTaJnXMczpeZ+/7M/Zlvpi2t2ZZw1Rd4X9KhpKOI8LukD0lfXYV0AQbsQtJCEn+/WnDAWE7ixIAfJD3mSLQB70q6kbS0QGtJL5J+EqrYPzeCZ5IgcJXanwImwL3Zd5lj30AEZwDek3RuhCvbmoBRCChsb7veWWIfpHHtVBKOlSsG5r6eDRTGYyyEIAAXPS8qWc0dvUm6G0FpTBjlJOix33moeGWsYDbFIjH5AaeimGylZPg4xUIQ94yzJTCA3APZOOWiwWD72q1GPkz4xykX4nB25cBYQMYV/k+4iE/lLByYewV8aN3mOOMo1zp3YGoW//9DMXm0DO+4sCBHeeD3UqADV1J9YPC24yRW0cHCBuJWj9UqYwKVkg2B6anXYVsbUXmtHcdDguz+tFE2Im4xIkmqsh3HwDCjnp9sQo0BDig2k7zl06hpHrOBza489eLIkfIXDLO4MhLjIREG4hC2w3CTEvN8+bbzNfJtby6aSVHsASPcKId5JBlVPPjYT1zOJyukDRgAWqgf5jePOBbfXAVkcOjX2i5OZUuy7bFH70YxgSmzg8C2eHxCIuVEYy6kgAmyYycA4Z1Mg9800WrgTcAkk4NAwPtrLot7fe/yP4leAbtu/gMz62wfi9jwdwAAAABJRU5ErkJggg=="
-                                                            width="30" height="30"></a></li>
-                <li><a href="#education" title="Education"><img class="icon icons8-Graduation-Cap"
-                                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAABpElEQVRIS+2W7TEEQRCG34uAEIjAZYAMiIAMEAEicBkgAxkgAxeBC8FFQD2qW7Wp2Z2Pw/7Rf652dqaftz+mb2eayGYTcfUPrs38jqRL23wtaVV70Pe1ptqBp5Kezcm+pDtJTQJqwSnwStKTgQ8k8dwkoAQeA6bZbRIwBG4BdglIwZsAmwQ4+CeBVQIA05En1qWxadzBXNKWJGpYYzTdWtJLsjn2wALwQtKZdSlXwruVdQRtZxzh9M0c8x5xqVDeE9RF6H7uPgLuY6rZxJUAjIBHO4SAHjuXdCPp0IbNJ9Cu3io2F2mm1hiRYhzyDLTCASEe+wK6kxTMugt4DWDSuZekkzWMlMZ6Lm3Nwbu5kToExuG7OYz1Y91HZZoByhQNMZzNzooxMJHQzaSaOvPs0eTS7lnhl/oSMd3tmfl2ZgxMvXGAar9SNXX2q0TECM7+c42BhyCISKNI61wU2AMuOq3ZMDmY9N2a0uOeL4qaKOMej/gh1I16HbU6at0fwXH2/hk4jrdNxmR14LG5SDf269ECieA4e6uV924sfez1+i2emwz8AWuzb04KqF7LAAAAAElFTkSuQmCC"
-                                                                width="30" height="30"></a></li>
-                <li><a href="#awards" title="Awards & Recognition"><img class="icon icons8-Medal"
-                                                                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAACNElEQVRIS6WX4TEuQRBFjwxkwIsAESACZEAEjwgQASLwRIAIEAEvAmRABNRR02rst7Mzs7pqa3/sTN++3bd7Zpco2z5wOfG95dMB8G9s4dLE7hNgFzhsQRhZcw7cAPpZsBrwFuAzx+4Bn25gAa+BP8BbJ/Iy8AzsJfAuxi5+Aj6Ao5KDkYAM+Ax4n8rWVKr1aeSm6m8SySnwUmC/ChwDivIi7StmqgYcGOuAYllLbwPILYL7n8RopiatFTicqHIDMP0hGt/68T3aOr2qLkWsUjcHH29T69WIfn/vZezGYZuYAetrNpptDnDUM+qoim0bh0WzzQHWueAqWLPVZN1lc4FNt23lY723u1CTGnv3mNq7bKIJbn0NptnmMA62DgrNFlrpZd0LnLONCaaincumu5l1DdiJJRvfAgj8kMZinlZZW+vIhop3XLp21ErAtsZO2uGw11E4U8HDGexM99z2HUEasKYv2+2HlYDjROpuk4F/RefRulCGErCpk7EbqgO/kE3Zq34xzEIT41DrXPAcVF0sHI81cc1hLjsvia9JhKNncg1Y5nHbbGkXlf8IeFpFn3eperjYnlW1tYMgetp7Wumm8uW7hbHrVPlGo9BcW81OC3BMq5a1Bjl5rY1UtjizVqY5bwmD8Vg0tR6RV1lt7H1V/esa5zcMgby6OhgEi9orKC+AsjVIv0/+CLQw1pmHQChcQFmGeGJcCmgA8fcw6bsF2Ojt53BYmmSR9riJjv66REk+AR1gfR8qxvyBAAAAAElFTkSuQmCC"
-                                                                        width="30" height="30"></a></li>
+                <li><a href="#about" title="About"><img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAB4UlEQVRIS9WW/TEEURDE+zIgAkIgAkSACLgIEAEiIANEgAgQwREBMpAB9aua2TrPvjezV1u15VXdH7cf09M9PTM700RnNhGuVgXekrRvSX9Kuh1KYCjwrqQbSZuSXgxsR9KBpMch4EOAjw300hh+GNC1JO59S5pLesgkkAWG4bsFrsl6KulCEmXwpKo5ZIEdDGat82yg0XNpc8EARpGMAJ5I2o7kzjKmfnuSYNQ6mO9JigllgbOMcTdlWRuLcbbGDkoCzZNl/Gr1xbWtQ2vhaiQfBTgrNebiNxowEjKhMFitR+n1e0lvBj4KY4IgNwkgZ9+hDNQWtl9jSU0cArMYaj2KEjyTWhhZcwFMixAcxqXJfF4jd8iWYEOAnTVSluZhsPCLXN9V4N8A15gxwxmrh5Gp/H6WMdJe2XDA3dTUFz+GQ2LqS2Ls62imhzVmGJxb0DsDpGW4vmHZ+6cPYFw/stYjOd7pPTXGBIch9713S7f6/3IhwNwnGPKf9a3TPmBkgyUv1IYFLHw3txYCOxwCyP/L8SWw71OGBLVsHRjDaD14jqWxKPd5CQwLAkafLrBkLnNwcvRl8mddlsAwIEjEdnmIeIu1iMOaZDu8Ejg9ebL9uvQcSnaeyfbxCjjtVyYD/gH+V2gftNGoSQAAAABJRU5ErkJggg=="
+                        width="30" height="30" alt="About"></a></li>
+                <li><a href="#experience" title="Experience"><img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEAklEQVR4nO2YTYiVVRjHf6KYmQop6Xxk2oi6EiNXSdQmVJqJ2ajoTCsXQhCKlEpQuZjatW3UoBRxoaJEjlLjOAkuRBCcwKmFGomlpJRfM43NWF554H/geDr3vV/vfe815g8H5p7/ez6eeT7PA+P4f6EN6AeGgSH93coThk+AXJ7RxROkiRzwN/A+0KixVXO5FDTTloW2v9dlTYgQ28TZwXWv7Xva1LQQokmcfVOv2i5JkNvUp7YfQ782tP9SiO3ieqk/bf8HrZ76t+mAJgkxCjwEVlAe/shSEOR0+Rzywwr27S1C26mZlq+ZfoXHW54zvlLBnqsLaDtVZy8UNk8A7wI9wCXlAhs/A8eBzcDcyPrZwIUETWeWbF8qcAl/jAFfAc97QgyKuyDN9MpnMi1/1ijk5mQCB4B1wGLgGQ37e704ZyZ/AhsCIWZTI2xSpLKLHAJeLGJNC3A40NJgLYVYKyH+AbZ489OAHfoPj2iYfzQH69/TWhPENFMTmMPe0SV8IWYAP+TxDTOpXcCkQBhnZqGgmWCfZ04+PtP8RWAVMBOYBez3MvfHwZojmv+SjDFPJjEa8YlfdKnlkXWvibsczC/QXqNeJMsEroCzCBTCRaSnI9xTnomFOCTOgkdm+FaHWjgNcU2cZeQQjeIsP4ToFHeMDPGbDl0U4X4U92qCadk3IRbnMbuq4r4OnR7h/lJIXhLhlmmdfRNiujjL5JlhRIdavghxTpzVVyGGxZ2NcNMShKwarupQizYhXgZuive1skRzvwNLI+sWir+SxgX97oXVTieVC0L06NCOPPt8HnkpureGcTG8Ld72rgj5uhdm7x95UWej59Cx8OtqKbfewf02LoaD4i3Tl41C3QsTZgD4N1KOxy72bIIgxoUwE32g/WLP3FS7Fzk5+Tcq8FyJ8jUwQfWTmeEe4K64894+A5q7q29WAhO11vY0bi8VopjuhYXcqd681VA3xHV75ubMsU+ljMN8zbmS3+WTbm//xiwEiXUv2r0y3MZ1+Vosmjks0DfXI/74BTC52r2qfN2LTk8YM5EXijjPNHVUa2ztbuUP+30aeK5avapC3Yt25QcXAA6oDmuROU6VJjoUncb0rb1n3vSy/q9eLlmqCrqv1GZ2V4Xdi5l6T7hLJg2LUDuBOcEeDcAZz2celnsfv1dVbveiWS9G1+ca014/6bn7Tp7K2C/1j2bZzE7CFOWcMYXYUvFdEekg9Y4jCSW5NeXKwW2tN1ML0ZAQRVPDW0quLpxbAHi93rvyIT5NcO4PyC4dVKyJQs75RobpoGycKsI5zYFLQVeF6aAsDBVh0/bYKhWtKaSD1Jyz2at66x79tXLOtFEz56wGauKc1ULmzjkO6hCPAOVo9wUWZFpaAAAAAElFTkSuQmCC"
+                        width="30" height="30" alt="Experience"></a></li>
+                <li><a href="#awards" title="Awards & Recognition"><img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAACNElEQVRIS6WX4TEuQRBFjwxkwIsAESACZEAEjwgQASLwRIAIEAEvAmRABNRR02rst7Mzs7pqa3/sTN++3bd7Zpco2z5wOfG95dMB8G9s4dLE7hNgFzhsQRhZcw7cAPpZsBrwFuAzx+4Bn25gAa+BP8BbJ/Iy8AzsJfAuxi5+Aj6Ao5KDkYAM+Ax4n8rWVKr1aeSm6m8SySnwUmC/ChwDivIi7StmqgYcGOuAYllLbwPILYL7n8RopiatFTicqHIDMP0hGt/68T3aOr2qLkWsUjcHH29T69WIfn/vZezGYZuYAetrNpptDnDUM+qoim0bh0WzzQHWueAqWLPVZN1lc4FNt23lY723u1CTGnv3mNq7bKIJbn0NptnmMA62DgrNFlrpZd0LnLONCaaincumu5l1DdiJJRvfAgj8kMZinlZZW+vIhop3XLp21ErAtsZO2uGw11E4U8HDGexM99z2HUEasKYv2+2HlYDjROpuk4F/RefRulCGErCpk7EbqgO/kE3Zq34xzEIT41DrXPAcVF0sHI81cc1hLjsvia9JhKNncg1Y5nHbbGkXlf8IeFpFn3eperjYnlW1tYMgetp7Wumm8uW7hbHrVPlGo9BcW81OC3BMq5a1Bjl5rY1UtjizVqY5bwmD8Vg0tR6RV1lt7H1V/esa5zcMgby6OhgEi9orKC+AsjVIv0/+CLQw1pmHQChcQFmGeGJcCmgA8fcw6bsF2Ojt53BYmmSR9riJjv66REk+AR1gfR8qxvyBAAAAAElFTkSuQmCC"
+                        width="30" height="30" alt="Awards & Recognition"></a></li>
+                <!--li><a href="#blog" title="Blog"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAB/0lEQVRIS8WWjTEEQRCF30VABmSACBABIiAEIkAEJwQiIANkQAZkQATUtzXvanZ2dnb2R5mqq9u96e7X/frvVvqns+rBvZB0vpBPD5LuU1t9wDeSjiS9zAS3Dey1TgkYwY7CSEesPxl4X9JWJei3pLcgOxv4ayTw9lLAlcF2xGZHTJH9FNBh5CxzPxuY9totAH/kWiYqzsnF9adUE9FOQCBCTqfxJb32eEHPpulI7XxKgh3FfQwd1xWhkc/jqGUAfJTkSi6ZuDX9AMdebi4K2rAAOwByKDyicHR9qq3ADHwliSGBgdy0Ipq9YPEyMHUa3p9Cj1vvXRKspId7HGa4rA3sKMhfCoxDzxGVyBBdk6tgDP3D8J6mwg5gF5mGHYAN1DfQvTBM7VAZQD2fNIDW4kmLC6OpApRSPLWbCgcZJqQgPq1hUgOMMnQ7p0MRA+glMRt4CKzmvjpiKplCcX/6mW+qMy4unkvycQobB0pUGyCePgaAzruovUhDSX4UcA19Y2SqqbaXrk6iQpl3hkg8udahkn2PruXjPt5EPlTVnmYeFFSr+91rEvr9W05+ErCV8N4jc4heRmbaw5NzjKGa7QMARZbr+WKOTyQdDIU08Z40MdObbohzTETki4WQmzwT8Ro1cs8Opy6azZX+oefC62sOUKrrdeuh0wFeEqxo6xfXaoycVikE/gAAAABJRU5ErkJggg=="
+                                                      width="30" height="30"></a></li-->
+                <li><a href="#education" title="Education"><img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAABpElEQVRIS+2W7TEEQRCG34uAEIjAZYAMiIAMEAEicBkgAxkgAxeBC8FFQD2qW7Wp2Z2Pw/7Rf652dqaftz+mb2eayGYTcfUPrs38jqRL23wtaVV70Pe1ptqBp5Kezcm+pDtJTQJqwSnwStKTgQ8k8dwkoAQeA6bZbRIwBG4BdglIwZsAmwQ4+CeBVQIA05En1qWxadzBXNKWJGpYYzTdWtJLsjn2wALwQtKZdSlXwruVdQRtZxzh9M0c8x5xqVDeE9RF6H7uPgLuY6rZxJUAjIBHO4SAHjuXdCPp0IbNJ9Cu3io2F2mm1hiRYhzyDLTCASEe+wK6kxTMugt4DWDSuZekkzWMlMZ6Lm3Nwbu5kToExuG7OYz1Y91HZZoByhQNMZzNzooxMJHQzaSaOvPs0eTS7lnhl/oSMd3tmfl2ZgxMvXGAar9SNXX2q0TECM7+c42BhyCISKNI61wU2AMuOq3ZMDmY9N2a0uOeL4qaKOMej/gh1I16HbU6at0fwXH2/hk4jrdNxmR14LG5SDf269ECieA4e6uV924sfez1+i2emwz8AWuzb04KqF7LAAAAAElFTkSuQmCC"
+                        width="30" height="30" alt="Education"></a></li>
+                <li><a href="#certification" title="Certification">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAACB0lEQVR4nO2ay0oDMRSGP0EXpYJaLN3pA/Ql1KU7fQBxqyLiQkEUlbpUdKtQsM9gX8DLSgSrgg9QF7oSvAtKjRROIZROadpkHNv8EGhzLv/5J5lkyAx4eHg0iySQAS6BN0CF1D6AK+Eu19ASJoDnEIsPak9SS9MiSpLoCBgB4tjHOPBdgycOjAJ5sZWaEZPURmIFd0gAjw3wrGojM2hCkNGukEtsGPDkxXfThKAgQeVhdgkTnjHxLS86DeNVgnqbr9E6T6/4vpgQVFYL1zDlUaZ1tZ0QFVJzJuQsRBGnLoX89ZQLghfSkUJUCAuA8kI6cWqFAeWFdKIQ1S43u2oXIWFAeSFV8ELaWcgk8ADcG5xXqagIGQZuAlapH+AaGHLIby3RnsS/ycnhIjAnIirnyrsO+a0kSgG32jlWTLPFpE+JT8oBv7VEFxJ7B/TVsPeLrexz7oDfSqIu7aA6XccvLT5fEmOL32qinMRm6/hkxefQAb+1RDMSu1XHZ0d85h3wW0s0K7FFYBvo0Wzd0lcUn2UH/NYSDVTtG7PyWmFdG61KSzjgt5qolUf4SApZkx3+ANiXvWPpPwoJghfiao4HzXv9d1pevRW0TbKWrzK4h0J53aAXNw28a//fpa8RIadEANVF5bQd3+oVd41KoZ/AgtY/VfV5SORxIt+X1HpwTIvt+A/qih5+Ad5PDPBDivfJAAAAAElFTkSuQmCC"
+                         width="30" height="30" alt="Certification"></a></li>
                 <li><a href="https://www.linkedin.com/in/vimalniroshan/" target="_blank" title="LinkedIn"><img
-                        class="icon icons8-LinkedIn"
                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAB50lEQVRIS+2XjU3DMBCFXycANoAJ2k4AbAATUCYAJqBMABsAG7ABMAFlA5iAMgHoi+6qa3SpBL0gIdWSldix/Pzu5/ky0HI7l3QiadSaX3c4k3Qj6d43GtjLtqRHSTu2gIWVDSKQ+pB0KGnuwADR+TivRAx7QQ7WQ0ljgAGjc6q+QB0fcAhOAeblzk4TybKI/lZsgSaOAP4yuz8Ff99KOrIxwMd2wIozHBBPGfDUQAEGlDGRvleBKqkTGOZ0AL1hlXER605g/L1l5gWYhQ/m7wrSncC7xpicI8pZeGoB2DswuYaPiWrYvpqZSTmsEdt7iHwOyWFXCdBKH+8n1GBNtLebi8+k9QGXXSXp+OPgYpNLSa524BCAzD2bDmAdGtYiX7EcEhktUALMJjBts3XysG4kMlijBJj9iAPynCex4Kz9G1rAwXy+DBgzugazKRdB1ABYE3CY3tMzVa4uAcl87DlOCrI5zPB5VDkOwTp6GXC6aRKAG+C1fbwxdZOj/zK4uPi9FHJN9jyO4gBDtHspR1sCkq7Jij2UJyvoAYygLr9eFjNGSFCq7AZz5eI58fL2zIT8L8rbF67LWNAzcdFjbY2eXxvBUfyFwadUF5i6r1+YT4uHxS+M+wSR9ws8cdWvp7guIbTw/zdCsONqsD6sVAAAAABJRU5ErkJggg=="
                         width="30" height="30"></a></li>
+                <li><a href="#contact" title="Contact"><img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADrklEQVR4nO2Zu2sUURTGf5HEIibxUagoCkpMCkGjBhtF0GCriJUPtNEiQio1AbXygXaipNDEB1qprRaa1YQY8yf4SCdqESFKzENIQhw58A1cZWZ3djYzs8V+cMjsOffenS/3nHPPuQsVVFDBQmA/0At8AqYAL2GZAj4CPUDbQhBoAgZTePFCMgA0xiWxB/iphUaBC8BWYAnJY41D4pf+/gB2x9kJn8QToI704UnWAX0OmaJ2ZtAhUUU28CSGxcAbfe4vJrB9d8piJ4KIGFYA49JFSgC9GmwxQRkRMVyX7i4R8EmDt1B+RLZKZ6m5ICY0uBi3aga6gNf6kinnLMgBnUogpRKplW4i7gJhaHWCMIoY0R0lECnq/aIMrAG6gT9OWrwHHNDuLJHY80HgvsZ4mnMbqI74Hl6IlExkuVKgjZkGrgANEda1MVeB387uLMuKSI3jSt/kWsXCAvaz1hjUGVHMe3gLQaRbti8qI+LC5n7VWrfSJtIq/zZ32hZgtwrgJDDsZK13wImQ6mC73Gxez6kR8V3KYiIID/P484OQOddkz6VFpNnJTkGBfVz2SeAUsApYDZyWzmzHAuYtdYrTTWkQ6ZLO0mgQhmVvD7C1y2Zulm8nz6dBJCednQlBmJZ9ZYBtpWwWM0E4JLuV6okTGZGuKQEivttajZc4Eb/+qo/hWmdkGwqZWx9SP3lJHIiFCslj/wV7g8QN9qMhc+vSJDIiXb4280GeLw1LEihbpeZaOeksMMNQpTQ8pF0weavdytcuH9bar9Ig0imd3TMtNO5r7bMR3iOfPtJAP7OMh1Ss64EO4KXc0C9RRqTr0JigSno8zQMRld2mv8y/xZ/t0lyE4JzT2LXO/KshbpUokR0qGmeAncA+p1maBZ4qM7mNlZ07R3StNOuUOW1aY0ZFY0uaRFBn518V+S/2IsAtgmAZ77mzO6N6vhky3kuSSLXjYiaPgUVEh2WvR878vjwtr5ckERTsPpkZxYxVsYWwVC3ArEMis1bXR7U6u3nnVL6jM2GDrm1q9XxYF2p+dTAvd8r88sHFZsfvo0gupBtMxLUmYlzQbVI/0adLOf9k/6DUei7G7xteqRd05Xxl2iKd/YMKokeDL1J+RG5IZ/FYEG3OWRHWf2T9s8LeqIsMaMLTMvqhp1+fLfVHRqNTfjzLaGc8yXqnjRgDNha70G6HzHfgki7m6jL6MXQM2BV3wUZnS7OU13F2IiwB3FXa83vwJGUSeK/sFDmwK6igAkLxFzfUbZ1ItQFXAAAAAElFTkSuQmCC"
+                        width="30" height="30" alt="Contact"></a></li>
             </ul>
         </nav>
     </div>
 </header>
 <main class="content">
-    <div class="section alt-bg-color">
+    <div id="about" class="section alt-bg-color">
         <div class="overview-container">
             <div class="overview">
                 <div class="overview-left">
@@ -162,8 +86,53 @@
             </div>
         </div>
     </div>
-
-    <div class="section">
+    <div id="summary" class="section">
+        <h1>SUMMARY</h1>
+        <div class="summary-container">
+            <div class="section-content left">
+                <h2>EXPERIENCE SUMMARY</h2>
+                <ul>
+                    <li>Expertise in Designing and Architecting Enterprise Application and Services</li>
+                    <li>Expertise in design & development of Web based application and Services</li>
+                    <li>Expertise in Micro-services based architecture and design</li>
+                    <li>Expertise in Object Oriented Design and Development</li>
+                    <li>Expertise in Java based technologies</li>
+                    <li>Expertise in product Indexing and Search</li>
+                    <li>Experience in leading and guiding technical team</li>
+                    <li>Experience in thought leadership for an organizations IT goals</li>
+                    <li>Experience in various Architectural Design Pattern</li>
+                    <li>Experience in with different software development methodologies (like: Agile, Waterfall and
+                        Rapid Prototyping)
+                    </li>
+                    <li>Experience in developing POCs and prototypes</li>
+                    <li>Experience in developing various integration solutions</li>
+                    <li>Experience in various Data Migration solutions design and development</li>
+                </ul>
+            </div>
+            <div class="section-content right">
+                <h2>TECHNICAL SUMMARY</h2>
+                <ul>
+                    <li><b>Languages: </b><span class="code">Java, Python, Scala, SQL, C/C++, XML, HTML and CSS</span></li>
+                    <li><b>Scripting Languages: </b><span class="code">JavaScript, Shell Scripts, DRL (Drools)</span></li>
+                    <li><b>Framework/Specification/Technologies: </b><span class="code">Java, Spring, Hibernate, REST, SOAP, WebServices, Servlets, JSP, Struts, JSF, Dojo, jQuery, IBM Web Sphere ESB, Drool</span></li>
+                    <li><b>Cloud Framework/Platforms/Services: </b><span class="code">AWS (EC2, Lambda, S3, SNS, SQS, EMR), IaC (Terraform), Spinnaker, Kubernetes, Docker</span></li>
+                    <li><b>Tools: </b><span class="code">JIRA, Remedy, Team City, Jmeter, Hudson Jenkins, Drools Guvnor, SVN, GitHub, Web Sphere ESB Integration Designer & Process Designer, IntelliJ IDE, Eclipse, Enterprise Architect (EA), MySQL Workbench, SQLYog, SQL Developer</span></li>
+                    <li><b>Databases: </b><span class="code">MySQL, DB2, SQL Server, PostgreSQL</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="awards" class="section alt-bg-color">
+        <h1>AWARDS</h1>
+        <div class="section-content">
+            <ul>
+                <li>Awarded <b>Excellence in Accountability and Execution</b> for various projects</li>
+                <li>Awarded <b>Excellence in Execution, Diligence in Delivery, High Quality of work deliverables with
+                    Great Work Ethics</b></li>
+            </ul>
+        </div>
+    </div>
+    <div id="experience" class="section">
         <h1>EXPERIENCE</h1>
         <div class="timeline">
             <div class="timeline-event">
@@ -357,7 +326,7 @@
             </div>
         </div>
     </div>
-    <div class="section alt-bg-color">
+    <div id="education" class="section alt-bg-color">
         <h1>EDUCATION</h1>
         <div class="timeline">
             <div class="timeline-event">
@@ -376,8 +345,19 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div id="certification" class="section">
+        <h1>CERTIFICATION</h1>
+        <div class="section-content">
+            <ul>
+                <li>Sun Certified Java Programmer with score of 93%</li>
+                <li>IBM Certified WebSphere ESB Application Developer</li>
+                <li>Secured grade Very Good in BNY Mellon Level 1 certification on Securities & Industries</li>
+            </ul>
+        </div>
+    </div>
 </main>
-<footer class="footbar">
+<footer id="contact" class="footbar">
     <div class="contact">
         <a href="https://www.linkedin.com/in/vimalniroshan/" target="_blank" title="LinkedIn"><img
                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABwklEQVR4nO2ZP0vDQByGkwsOruIkuGpXP4GLWyuufgk/g4OUXHFQEId2cFFwcHJUsC1mFPGutNpCLdY6VIp/2kT7N/1J0latbbGJklzgHninHMf75HdZLoLA4XA4TCPJdAXJJI5kqiFMwZHIVBMxjUkyWf5TeRET7FhpPDwiJkH7b97l8qgbKUQClgXMY8NAeWRMQaZR6wKYqG4XR73IpGJDgIHi+Cv/JuCLpOG8oIHW0EEpaDAfTntLQClo8J34veYtAa2h9wmodd1bAorXJ+CLpE0JYxKxvApz4RtvCSCXInAB3Mkwxnk+u3sN2xclSJWqUG224bXWMo/i2ukDTG4m2BZY2MvA41sTRnFZfIeZnRS7AtmXOvxGLK+CxKrAuPiPcmwK6G0wz//S4S2sHucheqcOXbeffGZTYF0p9q2ZCCXgJFcZWJd5qrEpML2dHNhn8SA7sK5ca7En0P7xvJepreTYa12fgN29EBfAXMCEC2AuQLkA4gIWGbWRWxE8fbWIadmygHE/z0BxMCJiemZZwPi54HZx1I2Er/yWBTpTIEG3y4uYbNgq/zmJEAkY9/POfhNENY6N7TfP4XA4glN8AJJwntfiYf8PAAAAAElFTkSuQmCC"
