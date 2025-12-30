@@ -90,6 +90,12 @@ body {
     color: #bbb;
 }
 
+.nav-title {
+    font-family: "Oswald", Georgia, sans-serif;
+    font-weight: 400;
+    font-size: x-large;
+}
+
 .menu-toggle, .hamburger {
     display: none;
 }
@@ -188,6 +194,15 @@ body {
 .overview-text .contact {
     font-size: large;
     justify-content: right;
+}
+
+.overview-text a {
+    font-family: Georgia, serif;
+    font-size: large;
+    text-decoration: none;
+    display: grid;
+    margin: 3px;
+    color: darkgreen;
 }
 
 .overview-right {
@@ -347,6 +362,15 @@ body {
     font-style: italic;
 }
 
+.general-caption {
+    font-family: Georgia, serif;
+    font-size: xx-large;
+    font-style: italic;
+    text-align: center;
+    line-height: 1.5em;
+    margin: 40px;
+}
+
 .section {
     scroll-margin-top: 60px;
     padding-bottom: 10px;
@@ -370,40 +394,40 @@ body {
     margin: 0;
 }
 
-.summary-container {
-    display: flex; /* Makes children line up horizontally */
-    column-gap: 10px; /* Adds space between the divs */
-    align-items: start;
-    font-family: "Oswald", sans-serif;
-    padding: 20px;
-}
-
 .section-content {
     font-family: Verdana, Tahoma, sans-serif;
     font-size: medium;
-}
-
-.summary-container .left {
-    width: 55%;
-}
-
-.summary-container .left li {
-    line-height: 1.5em;
-    margin-bottom: 0.5em;
-}
-
-.summary-container .right li {
-    line-height: 1.75em;
-    margin-bottom: 0.5em;
-}
-
-.summary-container .right {
-    width: 45%;
+    margin: 20px 40px;
 }
 
 .section-content li {
     line-height: 1.75em;
     margin-bottom: 1em;
+}
+
+.summary-container {
+    display: flex; /* Makes children line up horizontally */
+    column-gap: 10px; /* Adds space between the divs */
+    align-items: start;
+    font-family: "Oswald", sans-serif;
+}
+
+.summary-container .left {
+    width: 50%;
+}
+
+.summary-container .right {
+    width: 50%;
+}
+
+.summary-container .left li {
+    line-height: 1.75em;
+    margin-bottom: 1em;
+}
+
+.summary-container .right li {
+    line-height: 1.5em;
+    margin-bottom: .75em;
 }
 
 .code {
@@ -432,17 +456,20 @@ body {
 
 @media screen and (max-width: 630px) {
     .section h1 {
-        padding-left: 20px;
+        padding: 10px 20px;
     }
 
-    .awards {
-        padding-left: 20px;
+    .section h2 {
+        padding: 5px 10px;
+    }
+
+    .section-content {
+        margin: 10px 20px;
     }
 
     .summary-container {
         display: flex; /* Makes children line up horizontally */
         flex-direction: column;
-        row-gap: 20px;
         justify-content: start;
     }
 
