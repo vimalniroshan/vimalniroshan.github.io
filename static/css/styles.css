@@ -23,7 +23,7 @@ body {
 /* IMPORTANT: Add margin to the top and bottom of your content
            so it isn't covered by the fixed header and footer */
 .content {
-    padding: 60px 0px;
+    padding: 60px 0;
 }
 
 /*** Header section styles ***/
@@ -331,7 +331,7 @@ body {
         border-radius: 50%;
         z-index: 1;
         margin-left: -19px;
-        margin-top: 0px;
+        margin-top: 0;
     }
     .event-caption::before {
         background-color: gold;
@@ -368,7 +368,7 @@ body {
     font-style: italic;
     text-align: center;
     line-height: 1.5em;
-    margin: 40px;
+    padding: 40px 40px 20px 40px;
 }
 
 .section {
