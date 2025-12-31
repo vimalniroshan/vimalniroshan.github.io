@@ -374,6 +374,13 @@ body {
 .section {
     scroll-margin-top: 60px;
     padding-bottom: 10px;
+    display: flex;
+    justify-content: center; /* Horizontally centers the content */
+    width: 100vw;            /* Takes up the full width of the viewport*/
+}
+
+.section-container {
+    width: 1800px;
 }
 
 .section h1 {
