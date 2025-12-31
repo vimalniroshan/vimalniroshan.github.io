@@ -51,6 +51,12 @@ body {
     padding: 0;
 }
 
+.navbar-right {
+    display: flex;
+    margin-right: 15px;
+    padding: 0;
+}
+
 .navbar-left img {
     height: 40px; /* Sets a fixed height slightly smaller than the navbar */
     width: auto; /* Maintains aspect ratio */
@@ -75,10 +81,6 @@ body {
 
 .nav-links li:first-child {
     margin-left: 0;
-}
-
-.nav-links li:last-child {
-    margin-right: 20px;
 }
 
 .nav-links a {
@@ -110,7 +112,6 @@ body {
         height: 21px;
         cursor: pointer;
         z-index: 1001; /* Above the mobile menu */
-        margin-right: 15px;
     }
 
     /* Create the 3 lines of the hamburger */
@@ -138,10 +139,6 @@ body {
 
     .nav-links li {
         margin: 20px 0;
-    }
-
-    .nav-links li:last-child {
-        margin-right: 0;
     }
 
     /* THE MAGIC: When checkbox is checked, slide the menu in */
